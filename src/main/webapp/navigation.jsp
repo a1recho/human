@@ -18,7 +18,7 @@ function change(img,subMenu,path,type){
 		
           <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center"><a href="listuser.jsp">浏览员工信息</a>&nbsp;&nbsp;<a href="adduser.jsp">添加新员工</a></td>
+    <td align="center"><a href="/listUser">浏览员工信息</a>&nbsp;&nbsp;<a href="adduser.jsp">添加新员工</a></td>
   </tr>
 </table></div></td>
         <td onMouseOver="change(ImgJob,NJob,'NJob_r',1)" onMouseOut="change(ImgJob,NJob,'NJob_b',0)"><a href="#"><img id="ImgJob" src="images/NJob_b.GIF" width="110" height="48" border="0"></a><div id="NJob" style="background-color:#F3FFD5; border:#75A102 1px solid; width:230px; position:absolute; left:110px; display:none; top: 34px;">
