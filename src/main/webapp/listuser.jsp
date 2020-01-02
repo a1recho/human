@@ -49,6 +49,9 @@
   <%
     List<Employee> employees = (List<Employee>) request.getAttribute("employees");
     Iterator<Employee> iterator = employees.iterator();
+    if(iterator.hasNext()!=false){
+
+
     while (iterator.hasNext()){
        Employee e = iterator.next();
 
@@ -63,12 +66,13 @@
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><a href="selectuser.do?action=selectuser&id=">修改</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=">删除</a></td>
   </tr>
-  <%}
+  <%}}
+    else {
   %>
   <tr>
     <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >对不起，没有添加员工信息！！！</td>
   </tr>
-  <%%>
+  <%}%>
 </table>		
 		
 <!-------------->		</td>
