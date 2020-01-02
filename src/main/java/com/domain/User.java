@@ -7,7 +7,7 @@ public class User {
 
     private String password;
 
-    private boolean role;
+    private int role;
 
     private int resumeId;
 
@@ -35,11 +35,11 @@ public class User {
         this.password = password;
     }
 
-    public boolean isRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(boolean role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
