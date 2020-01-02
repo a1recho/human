@@ -31,12 +31,12 @@
         <if test="id != null and id != 0">id,</if>
         <if test="username != null and username != ''">user_name,</if>
         <if test="password != null and password != ''">password,</if>
-        <if test="role != null and role != 0">role</if>
+        role
         )values (
         <if test="id != null and id != 0">#{id},</if>
         <if test="username != null and username != ''">#{username},</if>
         <if test="password != null and password != ''">#{password},</if>
-        <if test="role != null and role != 0">#{role}</if>
+        '1'
         )
     </insert>
     
