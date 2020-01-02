@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DeptDao">
+    <resultMap type="Dept" id="deptResultMap" >
+        <id property="id" column="id"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="deptContent" column="dept_content"/>
+    </resultMap>
+    <select id="selectDept" parameterType="com.domain.Dept" resultMap="deptResultMap">
+        SELECT *
+        FROM dept
+        <where>
+            <if test="deptName != null and deptName != '' ">
+                AND dept_name like concat('%', #{deptName}, '%')
+            </if>
+            <if test="deptContent != null and deptContent != '' ">
+                AND dept_content like concat('%', #{deptContent}, '%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertDept" parameterType="com.domain.Dept" useGeneratedKeys="true" keyProperty="id">
+        insert into dept(
+        <if test="id != null and id != 0">id,</if>
+        <if test="deptName != null and deptName != ''">dept_name,</if>
+        <if test="deptContent != null and deptContent != ''">dept_content,</if>
+        )values (
+        <if test="id != null and id != 0">#{id},</if>
+        <if test="username != null and username != ''">#{username},</if>
+        <if test="password != null and password != ''">#{password},</if>
+        )
+    </insert>
+
+    <update id="updateDept" parameterType="com.domain.Dept">
+        update dept
+        <set>
+            <if test="deptName != null and deptName != ''">dept_name = #{deptName},</if>
+            <if test="deptContent != null and deptContent != ''">deptContent = #{deptContent},</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteDeptById" parameterType="int">
+        delete
+        from dept
+        where id = #{id}
+    </delete>
+</mapper>

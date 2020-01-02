@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.RecruitmentDao">
+    <resultMap type="Recruitment" id="RecruitmentResultMap" >
+        <id property="id" column="id"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <select id="selectRecruitment" parameterType="com.domain.Recruitment" resultMap="RecruitmentResultMap">
+        SELECT *
+        FROM recruitment
+        <where>
+            <if test="content != null and content != '' ">
+                AND user_name like concat('%', #{postName}, '%')
+            </if>
+            <if test="createTime != null and createTime != ''">
+            and date_format(create_time,'yyyy-MM-dd hh24:mi:ss') &gt;= date_format(#{params.endTime},'yyyy-MM-dd
+            hh24:mi:ss')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertRecruitment" parameterType="com.domain.Recruitment" useGeneratedKeys="true" keyProperty="id">
+        insert into recruitment(
+        <if test="id != null and id != 0">id,</if>
+        <if test="content != null and content != ''">content,</if>
+        create_time
+        )values (
+        <if test="id != null and id != 0">#{id},</if>
+        <if test="content != null and content != ''">#{content},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateRecruitment" parameterType="com.domain.Recruitment">
+        update recruitment
+        <set>
+            <if test="content != null and content != ''">content = #{content}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteRecruitmentById" parameterType="int">
+        delete
+        from recruitment
+        where id = #{id}
+    </delete>
+
+</mapper>

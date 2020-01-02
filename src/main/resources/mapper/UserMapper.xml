@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+    <resultMap type="User" id="userResultMap" >
+        <id property="id" column="id"/>
+        <result property="username" column="name"/>
+        <result property="password" column="password"/>
+        <result property="role" column="detail"/>
+        <result property="resumeId" column="resume_id"/>
+    </resultMap>
+    <select id="selectUser" parameterType="com.domain.User" resultMap="userResultMap">
+        SELECT *
+        FROM user
+        <where>
+            <if test="username != null and username != '' ">
+            AND user_name like concat('%', #{username}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserByUsername" parameterType="String" resultMap="userResultMap">
+        SELECT *
+        FROM user
+        where user_name = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="com.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(
+        <if test="id != null and id != 0">id,</if>
+        <if test="username != null and username != ''">user_name,</if>
+        <if test="password != null and password != ''">password,</if>
+        <if test="role != null and role != 0">role</if>
+        )values (
+        <if test="id != null and id != 0">#{id},</if>
+        <if test="username != null and username != ''">#{username},</if>
+        <if test="password != null and password != ''">#{password},</if>
+        <if test="role != null and role != 0">#{role}</if>
+        )
+    </insert>
+    
+    <update id="updateUser" parameterType="com.domain.User">
+        update user
+        <set>
+            <if test="username != null and username != ''">user_name = #{username},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+            <if test="role != null and role != 0">role = #{role}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+</mapper>

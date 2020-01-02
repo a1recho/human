@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.EmployeeDao">
+    <resultMap type="Employee" id="EmployeeResultMap" >
+        <id property="id" column="id"/>
+        <result property="employeeName" column="employee_name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="postId" column="post_id"/>
+        <result property="salary" column="salary"/>
+    </resultMap>
+
+    <select id="selectEmployee" parameterType="com.domain.Employee" resultMap="EmployeeResultMap">
+        SELECT *
+        FROM employee
+        <where>
+            <if test="employeeName != null and employeeName != '' ">
+                AND employee_name like concat('%', #{employeeName}, '%')
+            </if>
+            <if test="age != null and age != '' ">
+                AND age like concat('%', #{age}, '%')
+            </if>
+            <if test="sex != null and sex != '' ">
+                AND age like concat('%', #{age}, '%')
+            </if>
+            <if test="deptId != null and deptId != '' ">
+                AND dept_id like concat('%', #{deptId}, '%')
+            </if>
+            <if test="postId != null and postId != '' ">
+                AND post_id like concat('%', #{postId}, '%')
+            </if>
+            <if test="salary != null and salary != '' ">
+                AND salary like concat('%', #{salary}, '%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertEmployee" parameterType="com.domain.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employee(
+        <if test="id != null and id != 0">id,</if>
+        <if test="employeeName != null and employeeName != ''">employee_name,</if>
+        <if test="age != null and age != ''">age,</if>
+        <if test="sex != null and sex != 0">sex,</if>
+        <if test="deptId != null and deptId != 0">dept_id,</if>
+        <if test="postId != null and postId != 0">post_id,</if>
+        <if test="salary!= null and salary != 0">salary</if>
+        )values (
+        <if test="id != null and id != 0">#{id},</if>
+        <if test="employeeName != null and employeeName != ''">#{employeeName},</if>
+        <if test="age != null and age != ''">#{age},</if>
+        <if test="sex != null and sex != ''">#{sex},</if>
+        <if test="deptId != null and deptId != 0">#{deptId},</if>
+        <if test="postId != null and postId != 0">#{postId},</if>
+        <if test="salary != null and salary != 0">#{salary}</if>
+        )
+    </insert>
+
+    <update id="updateEmployee" parameterType="com.domain.Employee">
+        update employee
+        <set>
+            <if test="employeeName != null and employeeName != ''">employee_name = #{employeeName},</if>
+            <if test="age != null and age != ''">age = #{age},</if>
+            <if test="sex != null and sex != 0">sex = #{sex},</if>
+            <if test="deptId != null and deptId != 0">dept_id = #{deptId},</if>
+            <if test="postId != null and postId != 0">post_id = #{postId},</if>
+            <if test="salary != null and salary != 0">salary = #{salary}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteEmployeeById" parameterType="int">
+        delete
+        from employee
+        where id = #{id}
+    </delete>
+</mapper>

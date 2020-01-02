@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ResumeDao">
+    <resultMap type="Resume" id="ResumeResultMap" >
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="education" column="education"/>
+        <result property="age" column="age"/>
+        <result property="experience" column="experience"/>
+    </resultMap>
+
+    <select id="selectResume" parameterType="com.domain.Resume" resultMap="ResumeResultMap">
+        SELECT *
+        FROM resume
+        <where>
+            <if test="name != null and name != '' ">
+                AND name like concat('%', #{name}, '%')
+            </if>
+            <if test="sex != null and sex != '' ">
+                AND sex like concat('%', #{sex}, '%')
+            </if>
+            <if test="education != null and education != '' ">
+                AND education like concat('%', #{education}, '%')
+            </if>
+            <if test="age != null and age != '' ">
+                AND age like concat('%', #{age}, '%')
+            </if>
+            <if test="experience != null and experience != '' ">
+                AND experience like concat('%', #{experience}, '%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertResume" parameterType="com.domain.Resume" useGeneratedKeys="true" keyProperty="id">
+        insert into resume(
+        <if test="id != null and id != 0">id,</if>
+        <if test="name != null and name != ''">name,</if>
+        <if test="sex != null and sex != ''">sex,</if>
+        <if test="education != null and education != ''">education,</if>
+        <if test="age != null and age != ''">age,</if>
+        <if test="experience != null and experience != ''">experience</if>
+        )values (
+        <if test="id != null and id != 0">#{id},</if>
+        <if test="name != null and name != ''">#{name},</if>
+        <if test="sex != null and sex != ''">#{sex},</if>
+        <if test="education != null and education != ''">#{education},</if>
+        <if test="age != null and age != ''">#{age},</if>
+        <if test="experience != null and experience != ''">#{experience}</if>
+        )
+    </insert>
+
+    <update id="updateResume" parameterType="com.domain.Resume">
+        update resume
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="sex != null and sex != ''">sex = #{sex},</if>
+            <if test="education != null and education != ''">education = #{education},</if>
+            <if test="age != null and age != ''">age = #{age},</if>
+            <if test="experience != null and experience != ''">experience = #{experience}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteResumeById" parameterType="int">
+        delete
+        from resume
+        where id = #{id}
+    </delete>
+</mapper>
