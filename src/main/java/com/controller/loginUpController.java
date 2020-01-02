@@ -20,7 +20,7 @@ public class loginUpController {
                // return "loginUpError";
                int i = userService.insertUser(user);
                if (i == 1)
-                   return "welcome";
+                   return "index";
            }else
                return "loginUpError";
        }
