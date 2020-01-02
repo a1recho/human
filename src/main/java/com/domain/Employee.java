@@ -16,6 +16,26 @@ public class Employee {
 
     private String salary;
 
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public String getPostName() {
+        return postName;
+    }
+
+    public void setPostName(String postName) {
+        this.postName = postName;
+    }
+
+    private String deptName;
+
+    private String postName;
+
     public int getId() {
         return id;
     }

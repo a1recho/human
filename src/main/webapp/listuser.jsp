@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page isELIgnored="false" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
+<%@ page import="org.springframework.ui.Model" %>
+<%@ page import="com.domain.Employee" %>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,23 +42,28 @@
     <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >性别</td>
     <td width="16%" height="22" align="center" bgcolor="#E8FFA7" >年龄</td>
     <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >职位</td>
-    <td width="30%" height="22" align="center" bgcolor="#E8FFA7" >所在部门</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >所在部门</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >月薪</td>
     <td width="17%" align="center" bgcolor="#E8FFA7" >执行操作</td>
   </tr>
   <%
-
+    List<Employee> employees = (List<Employee>) request.getAttribute("employees");
+    Iterator<Employee> iterator = employees.iterator();
+    while (iterator.hasNext()){
+       Employee e = iterator.next();
 
 
   %>
   <tr>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%%>&nbsp;</td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%%>&nbsp;</td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPostName()%></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDeptName()%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><a href="selectuser.do?action=selectuser&id=">修改</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=">删除</a></td>
   </tr>
-  <%
+  <%}
   %>
   <tr>
     <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >对不起，没有添加员工信息！！！</td>
