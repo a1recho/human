@@ -1,16 +1,15 @@
-<%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="org.springframework.ui.Model" %>
 <%@ page import="com.domain.Employee" %>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>ÈËÁ¦×ÊÔ´¹ÜÀíÏµÍ³</title>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>äººåŠ›èµ„æºç®¡ç†ç³»ç»Ÿ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/css.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -35,42 +34,40 @@
    <br>
 <table width="94%"  border="0" align="center" cellpadding="0" cellspacing="1" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150" >
   <tr>
-    <td height="22" colspan="7" align="center" ><strong class="word_yellow">-ä¯ÀÀÔ±¹¤ĞÅÏ¢-</strong></td>
+    <td height="22" colspan="7" align="center" ><strong class="word_yellow">-æµè§ˆå‘˜å·¥ä¿¡æ¯-</strong></td>
   </tr>
   <tr class="tdhui">
-    <td width="17%" height="22" align="center" bgcolor="#E8FFA7" >Ô±¹¤ĞÕÃû</td>
-    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >ĞÔ±ğ</td>
-    <td width="16%" height="22" align="center" bgcolor="#E8FFA7" >ÄêÁä</td>
-    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >Ö°Î»</td>
-    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >ËùÔÚ²¿ÃÅ</td>
-    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >ÔÂĞ½</td>
-    <td width="17%" align="center" bgcolor="#E8FFA7" >Ö´ĞĞ²Ù×÷</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >å‘˜å·¥ç¼–å·</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >å‘˜å·¥å§“å</td>
+    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >æ€§åˆ«</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >å¹´é¾„</td>
+    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >èŒä½</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >æ‰€åœ¨éƒ¨é—¨</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >æœˆè–ª</td>
+    <td width="17%" align="center" bgcolor="#E8FFA7" >æ‰§è¡Œæ“ä½œ</td>
   </tr>
   <%
     List<Employee> employees = (List<Employee>) request.getAttribute("employees");
     Iterator<Employee> iterator = employees.iterator();
     if(iterator.hasNext()!=false){
-
-
     while (iterator.hasNext()){
        Employee e = iterator.next();
-
-
   %>
   <tr>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getId()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPostName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDeptName()%>&nbsp;</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="selectuser.do?action=selectuser&id=">ĞŞ¸Ä</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=">É¾³ı</a></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPostName()%>&id=DeptName&DeptName=<%=e.getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">ä¿®æ”¹</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">åˆ é™¤</a></td>
   </tr>
   <%}}
     else {
   %>
   <tr>
-    <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >¶Ô²»Æğ£¬Ã»ÓĞÌí¼ÓÔ±¹¤ĞÅÏ¢£¡£¡£¡</td>
+    <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >å¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ·»åŠ å‘˜å·¥ä¿¡æ¯ï¼ï¼ï¼</td>
   </tr>
   <%}%>
 </table>		

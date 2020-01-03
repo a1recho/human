@@ -33,35 +33,34 @@
   <tr>
     <td height="22" colspan="2" align="center" class="word_yellow">-添加员工信息-</td>
   </tr>
-  <form name="userForm" method="post" action="modifyuser.do?action=adduser" onSubmit="return userValidate();">
+  <form name="userForm" method="post" action="addUserInformation" onSubmit="return userValidate();">
   <tr>
     <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >员工姓名：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="username" type="text" class="input"></td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="employeeName" type="text" class="input"></td>
   </tr>
-    <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >是否管理员：</td>
-    <td width="67%" height="27" align="left" bgcolor="#E8FFA7" ><input name="isadminhelp" type="checkbox" onClick="javascript:adminChecked();" ></td>
-	<input type="hidden"  name="isadmin" >
-  </tr>
-  <tr id="pwd" style="display:none">
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >登录密码：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="password" type="password" class="input"></td>
-    </tr>
   <tr>
     <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >性&nbsp;&nbsp;&nbsp;&nbsp;别：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="sex" type="radio" value="1" checked>
-      男
-        <input name="sex" type="radio" value="0">
-      女</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="sex" type="text">
   </tr>
+
+    <tr>
+      <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >年龄：</td>
+      <td height="27" align="left" bgcolor="#E8FFA7" ><input name="age" type="text" class="input"></td>
+    </tr>
+
   <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >出生日期：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="birthday" type="text" class="input" ></td>
+    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >职位：</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="PostName" type="text" class="input" ></td>
     </tr>
   <tr>
-    <td height="27" align="center" bgcolor="#E8FFA7" >人员简介：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><textarea name="content" cols="50" rows="6" class="input"></textarea></td>
+    <td height="27" align="center" bgcolor="#E8FFA7" >所在部门：</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="DeptName" type="text" class="input"></td>
   </tr>
+
+    <tr>
+      <td height="27" align="center" bgcolor="#E8FFA7" >月薪：</td>
+      <td height="27" align="left" bgcolor="#E8FFA7" ><input name="salary" type="text" class="input"></td>
+    </tr>
   
   <tr>
     <td height="27" colspan="2" align="center" bgcolor="#E8FFA7" ><input name="Submit" type="submit" class="button" value="提交">
@@ -74,7 +73,7 @@
 <!-------------->		</td>
       </tr>
     </table>
-    <jsp:include page="copyright.html"/></td>
+    </td>
   </tr>
 </table>
 

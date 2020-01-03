@@ -63,7 +63,7 @@
         <set>
             <if test="employeeName != null and employeeName != ''">employee_name = #{employeeName},</if>
             <if test="age != null and age != ''">age = #{age},</if>
-            <if test="sex != null and sex != 0">sex = #{sex},</if>
+            <if test="sex != null and sex != ''">sex = #{sex},</if>
             <if test="deptId != null and deptId != 0">dept_id = #{deptId},</if>
             <if test="postId != null and postId != 0">post_id = #{postId},</if>
             <if test="salary != null and salary != 0">salary = #{salary}</if>
