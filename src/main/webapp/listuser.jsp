@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
@@ -9,8 +9,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>хка╕вйт╢╧эюМо╣мЁ</title>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Д╨╨Е┼⌡Х╣└Ф╨░Г╝║Г░├ГЁ╩Г╩÷</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/css.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -35,16 +35,17 @@
    <br>
 <table width="94%"  border="0" align="center" cellpadding="0" cellspacing="1" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150" >
   <tr>
-    <td height="22" colspan="7" align="center" ><strong class="word_yellow">-Д╞юют╠╧╓пео╒-</strong></td>
+    <td height="22" colspan="7" align="center" ><strong class="word_yellow">-Ф╣▐Х╖┬Е▒≤Е╥╔Д©║Ф│╞-</strong></td>
   </tr>
   <tr class="tdhui">
-    <td width="17%" height="22" align="center" bgcolor="#E8FFA7" >т╠╧╓пуцШ</td>
-    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >пт╠П</td>
-    <td width="16%" height="22" align="center" bgcolor="#E8FFA7" >дЙаД</td>
-    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >ж╟н╩</td>
-    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >кЫтз╡©це</td>
-    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >тбп╫</td>
-    <td width="17%" align="center" bgcolor="#E8FFA7" >ж╢пп╡ывВ</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >Е▒≤Е╥╔Г╪√Е▐╥</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >Е▒≤Е╥╔Е╖⌠Е░█</td>
+    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >Ф─╖Е┬╚</td>
+    <td width="13%" height="22" align="center" bgcolor="#E8FFA7" >Е╧╢И╬└</td>
+    <td width="10%" height="22" align="center" bgcolor="#E8FFA7" >Х│▄Д╫█</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >Ф┴─Е°╗И┐╗И≈╗</td>
+    <td width="15%" height="22" align="center" bgcolor="#E8FFA7" >Ф°┬Х√╙</td>
+    <td width="17%" align="center" bgcolor="#E8FFA7" >Ф┴╖Х║▄Ф⌠█Д╫°</td>
   </tr>
   <%
     List<Employee> employees = (List<Employee>) request.getAttribute("employees");
@@ -55,18 +56,19 @@
 
   %>
   <tr>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getId()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPost().getPostName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDept().getDeptName()%>&nbsp;</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="selectuser.do?action=selectuser&id=">пч╦д</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=">и╬ЁЩ</a></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPostName()%>&id=DeptName&DeptName=<%=e.getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">Д©╝Ф■╧</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">Е┬═И≥╓</a></td>
   </tr>
   <%}
   %>
   <tr>
-    <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >╤т╡╩фПё╛ц╩сплМ╪ст╠╧╓пео╒ё║ё║ё║</td>
+    <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >Е╞╧Д╦█Х╣╥О╪▄Ф╡║Ф°┴Ф╥╩Е┼═Е▒≤Е╥╔Д©║Ф│╞О╪│О╪│О╪│</td>
   </tr>
   <%%>
 </table>		
