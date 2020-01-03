@@ -1,12 +1,12 @@
-<%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>ÈËÁ¦×ÊÔ´¹ÜÀíÏµÍ³</title>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>äººåŠ›èµ„æºç®¡ç†ç³»ç»Ÿ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/css.css" rel="stylesheet" type="text/css">
 </head>
 <script src="Js/js.js"></script>
@@ -31,42 +31,41 @@
    <br>
 <table width="94%"  border="0" align="center" cellpadding="0" cellspacing="1" bordercolor="0" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150" >
   <tr>
-    <td height="22" colspan="2" align="center" class="word_yellow">-Ìí¼ÓÔ±¹¤ÐÅÏ¢-</td>
+    <td height="22" colspan="2" align="center" class="word_yellow">-æ·»åŠ å‘˜å·¥ä¿¡æ¯-</td>
   </tr>
-  <form name="userForm" method="post" action="modifyuser.do?action=adduser" onSubmit="return userValidate();">
+  <form name="userForm" method="post" action="addUserInformation" onSubmit="return userValidate();">
   <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >Ô±¹¤ÐÕÃû£º</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="username" type="text" class="input"></td>
+    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >å‘˜å·¥å§“åï¼š</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="employeeName" type="text" class="input"></td>
   </tr>
+  <tr>
+    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >æ€§&nbsp;&nbsp;&nbsp;&nbsp;åˆ«ï¼š</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="sex" type="text">
+  </tr>
+
     <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >ÊÇ·ñ¹ÜÀíÔ±£º</td>
-    <td width="67%" height="27" align="left" bgcolor="#E8FFA7" ><input name="isadminhelp" type="checkbox" onClick="javascript:adminChecked();" ></td>
-	<input type="hidden"  name="isadmin" >
-  </tr>
-  <tr id="pwd" style="display:none">
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >µÇÂ¼ÃÜÂë£º</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="password" type="password" class="input"></td>
+      <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >å¹´é¾„ï¼š</td>
+      <td height="27" align="left" bgcolor="#E8FFA7" ><input name="age" type="text" class="input"></td>
+    </tr>
+
+  <tr>
+    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >èŒä½ï¼š</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="PostName" type="text" class="input" ></td>
     </tr>
   <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >ÐÔ&nbsp;&nbsp;&nbsp;&nbsp;±ð£º</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="sex" type="radio" value="1" checked>
-      ÄÐ
-        <input name="sex" type="radio" value="0">
-      Å®</td>
+    <td height="27" align="center" bgcolor="#E8FFA7" >æ‰€åœ¨éƒ¨é—¨ï¼š</td>
+    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="DeptName" type="text" class="input"></td>
   </tr>
-  <tr>
-    <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >³öÉúÈÕÆÚ£º</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="birthday" type="text" class="input" ></td>
+
+    <tr>
+      <td height="27" align="center" bgcolor="#E8FFA7" >æœˆè–ªï¼š</td>
+      <td height="27" align="left" bgcolor="#E8FFA7" ><input name="salary" type="text" class="input"></td>
     </tr>
-  <tr>
-    <td height="27" align="center" bgcolor="#E8FFA7" >ÈËÔ±¼ò½é£º</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><textarea name="content" cols="50" rows="6" class="input"></textarea></td>
-  </tr>
   
   <tr>
-    <td height="27" colspan="2" align="center" bgcolor="#E8FFA7" ><input name="Submit" type="submit" class="button" value="Ìá½»">
+    <td height="27" colspan="2" align="center" bgcolor="#E8FFA7" ><input name="Submit" type="submit" class="button" value="æäº¤">
       &nbsp;&nbsp;
-      <input name="Submit2" type="reset" class="button" value="ÖØÖÃ"></td>
+      <input name="Submit2" type="reset" class="button" value="é‡ç½®"></td>
   </tr>
   </form>
 </table>		
@@ -74,7 +73,7 @@
 <!-------------->		</td>
       </tr>
     </table>
-    <jsp:include page="copyright.html"/></td>
+    </td>
   </tr>
 </table>
 

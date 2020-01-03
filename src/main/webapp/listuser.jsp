@@ -2,7 +2,6 @@
 <%@ page isELIgnored="false" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="org.springframework.ui.Model" %>
 <%@ page import="com.domain.Employee" %>
 
 
@@ -50,27 +49,27 @@
   <%
     List<Employee> employees = (List<Employee>) request.getAttribute("employees");
     Iterator<Employee> iterator = employees.iterator();
+    if(iterator.hasNext()!=false){
     while (iterator.hasNext()){
        Employee e = iterator.next();
-
-
   %>
   <tr>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getId()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp</td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPost().getPostName()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDept().getDeptName()%>&nbsp;</td>
+      <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPost().getPostName()%></td>
+      <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDept().getDeptName()%>&nbsp;</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPostName()%>&id=DeptName&DeptName=<%=e.getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">修改</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">删除</a></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPost().getPostName()%>&id=DeptName&DeptName=<%=e.getDept().getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">修改</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">删除</a></td>
   </tr>
-  <%}
+  <%}}
+    else {
   %>
   <tr>
     <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >对不起，没有添加员工信息！！！</td>
   </tr>
-  <%%>
+  <%}%>
 </table>		
 		
 <!-------------->		</td>

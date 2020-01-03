@@ -11,27 +11,27 @@
         <result property="deptId" column="dept_id"/>
         <result property="postId" column="post_id"/>
         <result property="salary" column="salary"/>
-        <association property="dept"
-                     column="dept_id"
-                     javaType="com.domain.Dept"
-                     resultMap="DeptResult"/>
         <association property="post"
                      column="post_id"
                      javaType="com.domain.Post"
-                     resultMap="PostResult"/>
+                     resultMap="postResult"/>
+        <association property="dept"
+                     column="dept_id"
+                     javaType="com.domain.Dept"
+                     resultMap="deptResult"/>
     </resultMap>
 
-    <resultMap id="DeptResult" type="com.domain.Dept">
-        <id column="id" property="id"/>
-        <result column="dept_name" property="deptName"/>
-    </resultMap>
-
-    <resultMap id="PostResult" type="com.domain.Post">
+    <resultMap id="postResult" type="com.domain.Post">
         <id column="id" property="id"/>
         <result column="post_name" property="postName"/>
     </resultMap>
 
-    <sql id="FieldSql">
+    <resultMap id="deptResult" type="com.domain.Dept">
+        <id column="id" property="id"/>
+        <result column="dept_name" property="deptName"/>
+    </resultMap>
+
+    <sql id="selectSql">
         SELECT
 employee.id,
 employee.employee_name,
@@ -49,7 +49,7 @@ INNER JOIN post ON employee.post_id = post.id
     </sql>
 
     <select id="selectEmployee" parameterType="com.domain.Employee" resultMap="EmployeeResultMap">
-        <include refid="FieldSql"/>
+        <include refid="selectSql"/>
         <where>
             <if test="employeeName != null and employeeName != '' ">
                 AND employee_name like concat('%', #{employeeName}, '%')
@@ -78,16 +78,12 @@ INNER JOIN post ON employee.post_id = post.id
         <if test="employeeName != null and employeeName != ''">employee_name,</if>
         <if test="age != null and age != ''">age,</if>
         <if test="sex != null and sex != ''">sex,</if>
-        <if test="deptId != null and deptId != 0">dept_id,</if>
-        <if test="postId != null and postId != 0">post_id,</if>
         <if test="salary!= null and salary != 0">salary</if>
         )values (
         <if test="id != null and id != 0">#{id},</if>
         <if test="employeeName != null and employeeName != ''">#{employeeName},</if>
         <if test="age != null and age != ''">#{age},</if>
         <if test="sex != null and sex != ''">#{sex},</if>
-        <if test="deptId != null and deptId != 0">#{deptId},</if>
-        <if test="postId != null and postId != 0">#{postId},</if>
         <if test="salary != null and salary != 0">#{salary}</if>
         )
     </insert>

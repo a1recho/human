@@ -4,9 +4,9 @@ import com.domain.Employee;
 import com.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -16,10 +16,29 @@ import java.util.List;
 public class adminController {
     @Autowired
     EmployeeService employeeService;
-    @RequestMapping("listUser")
+    @RequestMapping("listUser")//查看员工信息
     public String listUser(@ModelAttribute Employee employee, HttpServletRequest request){
         List<Employee> employees = employeeService.selectEmployee(employee);
         request.setAttribute("employees", employees);
         return "listuser";
     }
+
+    @RequestMapping("updateUserInformation")//修改员工信息
+    public String updateUserInformation(@ModelAttribute Employee employee){
+        int i = employeeService.updateEmployee(employee);
+        return "forward:/listUser";
+    }
+
+    @RequestMapping("delete")//删除员工信息
+    public String delete(@RequestParam(value = "idNo") int id){
+        employeeService.deleteEmployeeById(id);
+        return "forward:/listUser";
+    }
+
+    @RequestMapping("addUserInformation")//添加员工信息
+    public String addUserInformation(@ModelAttribute Employee employee){
+        employeeService.insertEmployee(employee);
+        return "forward:/listUser";
+    }
+
 }
