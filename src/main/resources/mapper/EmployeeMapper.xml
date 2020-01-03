@@ -11,11 +11,45 @@
         <result property="deptId" column="dept_id"/>
         <result property="postId" column="post_id"/>
         <result property="salary" column="salary"/>
+        <association property="post"
+                     column="post_id"
+                     javaType="com.domain.Post"
+                     resultMap="postResult"/>
+        <association property="dept"
+                     column="dept_id"
+                     javaType="com.domain.Dept"
+                     resultMap="deptResult"/>
     </resultMap>
 
+    <resultMap id="postResult" type="com.domain.Post">
+        <id column="id" property="id"/>
+        <result column="post_name" property="postName"/>
+    </resultMap>
+
+    <resultMap id="deptResult" type="com.domain.Dept">
+        <id column="id" property="id"/>
+        <result column="dept_name" property="deptName"/>
+    </resultMap>
+
+    <sql id="selectSql">
+        SELECT
+employee.id,
+employee.employee_name,
+employee.age,
+employee.sex,
+employee.dept_id,
+employee.post_id,
+employee.salary,
+dept.dept_name,
+post.post_name
+FROM
+employee
+INNER JOIN dept ON employee.dept_id = dept.id
+INNER JOIN post ON employee.post_id = post.id
+    </sql>
+
     <select id="selectEmployee" parameterType="com.domain.Employee" resultMap="EmployeeResultMap">
-        SELECT *
-        FROM employee
+        <include refid="selectSql"/>
         <where>
             <if test="employeeName != null and employeeName != '' ">
                 AND employee_name like concat('%', #{employeeName}, '%')

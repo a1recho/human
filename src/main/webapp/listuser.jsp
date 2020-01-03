@@ -52,10 +52,6 @@
     if(iterator.hasNext()!=false){
     while (iterator.hasNext()){
        Employee e = iterator.next();
-       if(e.getPostName()==null)
-         e.setPostName("暂时未分配");
-       if (e.getDeptName()==null)
-         e.setDeptName("暂时未分配");
   %>
   <tr>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getId()%></td>
