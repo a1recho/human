@@ -62,10 +62,10 @@
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp</td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPostName()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDeptName()%>&nbsp;</td>
+      <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPost().getPostName()%></td>
+      <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDept().getDeptName()%>&nbsp;</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPostName()%>&id=DeptName&DeptName=<%=e.getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">修改</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">删除</a></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><a href="updateUserInformation.jsp?id=idNo&idNo=<%=e.getId()%>&id=name&name=<%=e.getEmployeeName()%>&id=sex&sex=<%=e.getSex()%>&id=age&age=<%=e.getAge()%>&id=PostName&PostName=<%=e.getPost().getPostName()%>&id=DeptName&DeptName=<%=e.getDept().getDeptName()%>&id=salary&salary=<%=e.getSalary()%>">修改</a>&nbsp;&nbsp;<a href="/delete?idNo=<%=e.getId()%>">删除</a></td>
   </tr>
   <%}}
     else {

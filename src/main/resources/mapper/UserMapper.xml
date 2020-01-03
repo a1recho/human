@@ -7,7 +7,7 @@
         <id property="id" column="id"/>
         <result property="username" column="name"/>
         <result property="password" column="password"/>
-        <result property="role" column="detail"/>
+        <result property="role" column="role"/>
         <result property="resumeId" column="resume_id"/>
     </resultMap>
     <select id="selectUser" parameterType="com.domain.User" resultMap="userResultMap">
