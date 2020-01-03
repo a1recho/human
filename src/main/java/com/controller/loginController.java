@@ -17,8 +17,6 @@ public class loginController {
    public String checkLogin(@ModelAttribute User user){
         User u = userService.selectUserByUsername(user.getUsername());
         if(u.getPassword().equals(user.getPassword())){
-            System.out.println(u.getRole());
-            System.out.println(u.getId());
             if(u.getRole()==0)
                 return "manage";
             else
