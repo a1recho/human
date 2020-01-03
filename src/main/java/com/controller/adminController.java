@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.domain.Employee;
+import com.domain.Recruitment;
 import com.service.EmployeeService;
+import com.service.RecruitmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +18,10 @@ import java.util.List;
 public class adminController {
     @Autowired
     EmployeeService employeeService;
+    @Autowired
+    RecruitmentService recruitmentService;
+
+
     @RequestMapping("listUser")//查看员工信息
     public String listUser(@ModelAttribute Employee employee, HttpServletRequest request){
         List<Employee> employees = employeeService.selectEmployee(employee);
@@ -39,6 +45,12 @@ public class adminController {
     public String addUserInformation(@ModelAttribute Employee employee){
         employeeService.insertEmployee(employee);
         return "forward:/listUser";
+    }
+
+    @RequestMapping("recruitment")//发布招聘信息
+    public String recruitment(@ModelAttribute Recruitment recruitment){
+       recruitmentService.insertRecruitment(recruitment);
+       return "addSuccess";
     }
 
 }
