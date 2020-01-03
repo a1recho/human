@@ -58,8 +58,8 @@
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getEmployeeName()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSex()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getAge()%>&nbsp;</td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPostName()%></td>
-    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDeptName()%>&nbsp;</td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getPost().getPostName()%></td>
+    <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getDept().getDeptName()%>&nbsp;</td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><%=e.getSalary()%></td>
     <td height="22" align="center" bgcolor="#FFFFFF" ><a href="selectuser.do?action=selectuser&id=">ÐÞ¸Ä</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=">É¾³ý</a></td>
   </tr>

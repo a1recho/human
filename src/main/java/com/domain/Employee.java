@@ -16,21 +16,9 @@ public class Employee {
 
     private String salary;
 
-    public String getDeptName() {
-        return deptName;
-    }
+    private Dept dept;
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
-
-    public String getPostName() {
-        return postName;
-    }
-
-    public void setPostName(String postName) {
-        this.postName = postName;
-    }
+    private Post post;
 
     private String deptName;
 
@@ -90,5 +78,37 @@ public class Employee {
 
     public void setSalary(String salary) {
         this.salary = salary;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public String getPostName() {
+        return postName;
+    }
+
+    public void setPostName(String postName) {
+        this.postName = postName;
     }
 }
