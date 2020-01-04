@@ -36,19 +36,17 @@
 
     <insert id="insertResume" parameterType="com.domain.Resume" useGeneratedKeys="true" keyProperty="id">
         insert into resume(
-        <if test="id != null and id != 0">id,</if>
-        <if test="name != null and name != ''">name,</if>
-        <if test="sex != null and sex != ''">sex,</if>
-        <if test="education != null and education != ''">education,</if>
-        <if test="age != null and age != ''">age,</if>
-        <if test="experience != null and experience != ''">experience</if>
+        <if test="name != null and name != ''">name</if>
+        <if test="sex != null and sex != ''">,sex</if>
+        <if test="education != null and education != ''">,education</if>
+        <if test="age != null and age != ''">,age</if>
+        <if test="experience != null and experience != ''">,experience</if>
         )values (
-        <if test="id != null and id != 0">#{id},</if>
-        <if test="name != null and name != ''">#{name},</if>
-        <if test="sex != null and sex != ''">#{sex},</if>
-        <if test="education != null and education != ''">#{education},</if>
-        <if test="age != null and age != ''">#{age},</if>
-        <if test="experience != null and experience != ''">#{experience}</if>
+        <if test="name != null and name != ''">#{name}</if>
+        <if test="sex != null and sex != ''">,#{sex}</if>
+        <if test="education != null and education != ''">,#{education}</if>
+        <if test="age != null and age != ''">,#{age}</if>
+        <if test="experience != null and experience != ''">,#{experience}</if>
         )
     </insert>
 
