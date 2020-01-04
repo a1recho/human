@@ -29,10 +29,20 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td height="431" valign="top" bgcolor="#C5DF7E">
-<!------->		
-		
    <br>
-<table width="94%"  border="0" align="center" cellpadding="0" cellspacing="1" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150" >
+          <div align="center">
+            <form action="/selectInformation" method="post">
+             性别<input type="text" name="sex" style="width: 100px">
+             <%-- 年龄<input type="text" name="age" style="width: 100px">--%>
+              姓名<input type="text" name="employeeName" style="width: 100px">
+              薪水<input type="text" name="salary" style="width: 100px">
+              <input type="submit" value="查询员工信息">
+            </form>
+          </div>
+
+
+
+<table  width="94%"  border="0" align="center" cellpadding="0" cellspacing="1" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150" >
   <tr>
     <td height="22" colspan="7" align="center" ><strong class="word_yellow">-浏览员工信息-</strong></td>
   </tr>
@@ -70,9 +80,8 @@
     <td height="22" colspan="7" align="center" bgcolor="#E8FFA7" >对不起，没有添加员工信息！！！</td>
   </tr>
   <%}%>
-</table>		
-		
-<!-------------->		</td>
+</table>
+	</td>
       </tr>
     </table>
    </td>

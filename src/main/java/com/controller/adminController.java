@@ -1,11 +1,13 @@
 package com.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.domain.Employee;
 import com.domain.Recruitment;
 import com.service.EmployeeService;
 import com.service.RecruitmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,6 +53,14 @@ public class adminController {
     public String recruitment(@ModelAttribute Recruitment recruitment){
        recruitmentService.insertRecruitment(recruitment);
        return "addSuccess";
+    }
+
+    @RequestMapping("selectInformation")//模糊查询员工信息
+    public String selectInformation(@ModelAttribute Employee employee, HttpServletRequest request) {
+
+        List<Employee> employees = employeeService.selectEmployee(employee);
+        request.setAttribute("employees", employees);
+        return "result";
     }
 
 }
