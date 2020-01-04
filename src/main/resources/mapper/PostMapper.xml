@@ -14,12 +14,18 @@
         FROM post
         <where>
             <if test="postName != null and postName != '' ">
-                AND user_name like concat('%', #{postName}, '%')
+                AND post_name like concat('%', #{postName}, '%')
             </if>
             <if test="postContent != null and postContent != '' ">
                 AND post_content like concat('%', #{postContent}, '%')
             </if>
         </where>
+    </select>
+
+    <select id="selectPostByPostName" parameterType="String" resultMap="postResultMap">
+        SELECT *
+        FROM post
+        where post_name = #{postName}
     </select>
 
     <insert id="insertPost" parameterType="com.domain.Post" useGeneratedKeys="true" keyProperty="id">

@@ -3,7 +3,9 @@ package com.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.domain.Employee;
 import com.domain.Recruitment;
+import com.service.DeptService;
 import com.service.EmployeeService;
+import com.service.PostService;
 import com.service.RecruitmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,10 @@ public class adminController {
     EmployeeService employeeService;
     @Autowired
     RecruitmentService recruitmentService;
+    @Autowired
+    PostService postService;
+    @Autowired
+    DeptService deptService;
 
 
     @RequestMapping("listUser")//查看员工信息
@@ -45,6 +51,8 @@ public class adminController {
 
     @RequestMapping("addUserInformation")//添加员工信息
     public String addUserInformation(@ModelAttribute Employee employee){
+        employee.setDeptId(deptService.selectDeptByDeptName(employee.getDeptName()).getId());
+        employee.setPostId(postService.selectPostByPostName(employee.getPostName()).getId());
         employeeService.insertEmployee(employee);
         return "forward:/listUser";
     }

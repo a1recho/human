@@ -6,6 +6,8 @@ public interface PostDao {
 
     List<Post> selectPost(Post post);
 
+    Post selectPostByPostName(String postName);
+
     int insertPost(Post post);
 
     int updatePost(Post Post);

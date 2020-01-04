@@ -50,13 +50,27 @@
 
   <tr>
     <td width="33%" height="27" align="center" bgcolor="#E8FFA7" >ְ职位：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="PostName" type="text" class="input" ></td>
+    <td height="27" align="left" bgcolor="#E8FFA7" >
+      <select name="postName">
+        <option value ="经理">经理</option>
+        <option value ="总监">总监</option>
+        <option value="员工">员工</option>
+        <option value="董事">董事</option>
+      </select>
+    </td>
     </tr>
   <tr>
     <td height="27" align="center" bgcolor="#E8FFA7" >所在部门：</td>
-    <td height="27" align="left" bgcolor="#E8FFA7" ><input name="DeptName" type="text" class="input"></td>
+    <td height="27" align="left" bgcolor="#E8FFA7" >
+      <select name="deptName">
+        <option value ="营销部">营销部</option>
+        <option value ="人事部">人事部</option>
+        <option value="决策部">决策部</option>
+        <option value="后勤部">后勤部</option>
+        <option value ="安保部">安保部</option>
+      </select>
+    </td>
   </tr>
-
     <tr>
       <td height="27" align="center" bgcolor="#E8FFA7" >月薪：</td>
       <td height="27" align="left" bgcolor="#E8FFA7" ><input name="salary" type="text" class="input"></td>
