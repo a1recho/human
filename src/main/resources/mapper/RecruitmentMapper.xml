@@ -44,12 +44,12 @@
         update recruitment
         <set>
             <if test="postName != null and postName != ''">post_name = #{postName}</if>
-            <if test="sex != null and sex != ''">sex = #{sex}</if>
-            <if test="age != null and age != ''">age = #{age}</if>
-            <if test="education != null and education != ''">education = #{education}</if>
-            <if test="phone != null and phone != ''">phone = #{phone}</if>
-            <if test="experience != null and experience != ''">experience = #{experience}</if>
-            <if test="content != null and content != ''">content = #{content}</if>
+            <if test="sex != null and sex != ''">,sex = #{sex}</if>
+            <if test="age != null and age != ''">,age = #{age}</if>
+            <if test="education != null and education != ''">,education = #{education}</if>
+            <if test="phone != null and phone != ''">,phone = #{phone}</if>
+            <if test="experience != null and experience != ''">,experience = #{experience}</if>
+            <if test="content != null and content != ''">,content = #{content}</if>
         </set>
         where id=#{id}
     </update>
