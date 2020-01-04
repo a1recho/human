@@ -8,6 +8,8 @@ public interface PostService {
 
     List<Post> selectPost(Post post);
 
+    Post selectPostByPostName(String postName);
+
     int insertPost(Post post);
 
     int updatePost(Post Post);

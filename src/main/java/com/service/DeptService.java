@@ -6,6 +6,8 @@ public interface DeptService {
 
     List<Dept> selectDept(Dept dept);
 
+    Dept selectDeptByDeptName(String deptName);
+
     int insertDept(Dept dept);
 
     int updateDept(Dept dept);

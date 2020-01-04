@@ -21,6 +21,12 @@
         </where>
     </select>
 
+    <select id="selectDeptByDeptName" parameterType="String" resultMap="deptResultMap">
+        SELECT *
+        FROM dept
+        where dept_name = #{deptName}
+    </select>
+
     <insert id="insertDept" parameterType="com.domain.Dept" useGeneratedKeys="true" keyProperty="id">
         insert into dept(
         <if test="id != null and id != 0">id,</if>

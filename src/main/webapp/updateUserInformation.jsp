@@ -60,12 +60,12 @@
                                 <tr>
                                     <td width="33%" height="27" align="center" bgcolor="#E8FFA7">职位：</td>
                                     <td height="27" align="left" bgcolor="#E8FFA7"><input name="postName" type="text"
-                                                                                          class="input" value="<%=request.getParameter("PostName")%>"></td>
+                                                                                          class="input" value="<%=request.getParameter("PostName")%>" readonly></td>
                                 </tr>
                                 <tr>
                                     <td height="27" align="center" bgcolor="#E8FFA7">所在部门：</td>
                                     <td height="27" align="left" bgcolor="#E8FFA7"><input name="deptName" type="text"
-                                                                                          class="input" value="<%=request.getParameter("DeptName")%>"></td>
+                                                                                          class="input" value="<%=request.getParameter("DeptName")%>" readonly></td>
                                 </tr>
 
                                 <tr>
