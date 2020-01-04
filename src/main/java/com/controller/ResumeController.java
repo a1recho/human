@@ -44,7 +44,7 @@ public class ResumeController {
         }
     }
 
-    @RequestMapping("delete")//删除简历信息
+    @RequestMapping("deleteResume")//删除简历信息
     public String deleteResume(@RequestParam(value = "idNo") int id){
         resumeService.deleteResumeById(id);
         return "frorward:/";
