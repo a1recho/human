@@ -58,7 +58,7 @@ INNER JOIN post ON employee.post_id = post.id
                 AND age like concat('%', #{age}, '%')
             </if>
             <if test="sex != null and sex != '' ">
-                AND age like concat('%', #{age}, '%')
+                AND sex like concat('%', #{sex}, '%')
             </if>
             <if test="deptId != null and deptId != '' ">
                 AND dept_id like concat('%', #{deptId}, '%')
