@@ -20,7 +20,7 @@ public class RecruitmentController {
     @RequestMapping("listRecruitment")//查看已发布的招聘信息
     public String listRecruitment(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
         List<Recruitment> recruitments = recruitmentService.selectRecruitment(recruitment);
-        request.setAttribute("employees", recruitments);
+        request.setAttribute("recruitments", recruitments);
         return "listjob";
     }
 
