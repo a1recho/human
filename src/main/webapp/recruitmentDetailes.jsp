@@ -66,6 +66,7 @@
                                                                                                          cols="50"
                                                                                                          rows="6"
                                                                                                          class="input"><%=request.getParameter("content")%></textarea>
+                                        <input type="hidden" name="id" value="<%=request.getParameter("idNo")%>">
                                     </td>
                                 </tr>
 

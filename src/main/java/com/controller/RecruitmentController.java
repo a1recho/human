@@ -37,11 +37,7 @@ public class RecruitmentController {
     @RequestMapping("recruitmentUpdate")//修改招聘信息
     public String editRecruitment(@ModelAttribute Recruitment recruitment) {
         int i = recruitmentService.updateRecruitment(recruitment);
-        if (i != 0) {
             return "updateSuccess";
-        } else {
-            return "error";
-        }
     }
 
     @RequestMapping("deleteRecruitment")//删除招聘信息
