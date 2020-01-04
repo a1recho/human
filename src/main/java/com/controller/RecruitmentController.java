@@ -18,7 +18,7 @@ public class RecruitmentController {
     RecruitmentService recruitmentService;
 
     @RequestMapping("listRecruitment")//查看员工信息
-    public String listUser(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
+    public String listRecruitment(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
         List<Recruitment> recruitments = recruitmentService.selectRecruitment(recruitment);
         request.setAttribute("employees", recruitments);
         return "listjob";
@@ -45,7 +45,7 @@ public class RecruitmentController {
     }
 
     @RequestMapping("deleteRecruitment")//删除员工信息
-    public String delete(@RequestParam(value = "idNo") int id){
+    public String deleteRecruitment(@RequestParam(value = "idNo") int id){
         int i = recruitmentService.deleteRecruitmentById(id);
         if (i != 0) {
             return "forward:/listjob";
