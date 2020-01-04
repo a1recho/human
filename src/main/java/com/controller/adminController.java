@@ -1,6 +1,5 @@
 package com.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.domain.Employee;
 import com.domain.Recruitment;
 import com.service.DeptService;
@@ -55,12 +54,6 @@ public class adminController {
         employee.setPostId(postService.selectPostByPostName(employee.getPostName()).getId());
         employeeService.insertEmployee(employee);
         return "forward:/listUser";
-    }
-
-    @RequestMapping("recruitment")//发布招聘信息
-    public String recruitment(@ModelAttribute Recruitment recruitment){
-       recruitmentService.insertRecruitment(recruitment);
-       return "addSuccess";
     }
 
     @RequestMapping("selectInformation")//模糊查询员工信息

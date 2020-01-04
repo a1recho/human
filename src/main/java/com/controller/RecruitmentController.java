@@ -17,7 +17,7 @@ public class RecruitmentController {
     @Autowired
     RecruitmentService recruitmentService;
 
-    @RequestMapping("listRecruitment")//查看员工信息
+    @RequestMapping("listRecruitment")//查看已发布的招聘信息
     public String listRecruitment(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
         List<Recruitment> recruitments = recruitmentService.selectRecruitment(recruitment);
         request.setAttribute("employees", recruitments);
@@ -34,7 +34,7 @@ public class RecruitmentController {
         }
     }
 
-    @RequestMapping("updateRecruitment")//修改员工信息
+    @RequestMapping("updateRecruitment")//修改招聘信息
     public String editRecruitment(@ModelAttribute Recruitment recruitment) {
         int i = recruitmentService.updateRecruitment(recruitment);
         if (i != 0) {
@@ -44,7 +44,7 @@ public class RecruitmentController {
         }
     }
 
-    @RequestMapping("deleteRecruitment")//删除员工信息
+    @RequestMapping("deleteRecruitment")//删除招聘信息
     public String deleteRecruitment(@RequestParam(value = "idNo") int id){
         int i = recruitmentService.deleteRecruitmentById(id);
         if (i != 0) {
