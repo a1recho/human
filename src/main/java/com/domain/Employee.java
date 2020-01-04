@@ -6,7 +6,7 @@ public class Employee {
 
     private String employeeName;
 
-    private int age;
+    private String age;
 
     private String sex;
 
@@ -40,11 +40,12 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public int getAge() {
+
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

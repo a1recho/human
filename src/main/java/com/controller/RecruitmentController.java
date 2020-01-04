@@ -21,24 +21,24 @@ public class RecruitmentController {
     public String listRecruitment(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
         List<Recruitment> recruitments = recruitmentService.selectRecruitment(recruitment);
         request.setAttribute("recruitments", recruitments);
-        return "listjob";
+        return "listRecruitment";
     }
 
     @RequestMapping("recruitment")//发布招聘信息
     public String addRecruitment(@ModelAttribute Recruitment recruitment) {
         int i = recruitmentService.insertRecruitment(recruitment);
         if (i != 0) {
-            return "forward:/listjob";
+            return "addSuccess";
         } else {
             return "error";
         }
     }
 
-    @RequestMapping("updateRecruitment")//修改招聘信息
+    @RequestMapping("recruitmentUpdate")//修改招聘信息
     public String editRecruitment(@ModelAttribute Recruitment recruitment) {
         int i = recruitmentService.updateRecruitment(recruitment);
         if (i != 0) {
-            return "forward:/listjob";
+            return "updateSuccess";
         } else {
             return "error";
         }
@@ -48,7 +48,7 @@ public class RecruitmentController {
     public String deleteRecruitment(@RequestParam(value = "idNo") int id){
         int i = recruitmentService.deleteRecruitmentById(id);
         if (i != 0) {
-            return "forward:/listjob";
+            return "deleteSuccess";
         } else {
             return "error";
         }

@@ -33,7 +33,7 @@
           <div align="center">
             <form action="/selectInformation" method="post">
              性别<input type="text" name="sex" style="width: 100px">
-             <%-- 年龄<input type="text" name="age" style="width: 100px">--%>
+              年龄<input type="text" name="age" style="width: 100px">
               姓名<input type="text" name="employeeName" style="width: 100px">
               薪水<input type="text" name="salary" style="width: 100px">
               <input type="submit" value="查询员工信息">
