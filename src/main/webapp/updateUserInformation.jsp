@@ -70,7 +70,7 @@
 
                                 <tr>
                                     <td height="27" align="center" bgcolor="#E8FFA7">月薪：</td>
-                                    <td height="27" align="left" bgcolor="#E8FFA7"><input name="money" type="text"
+                                    <td height="27" align="left" bgcolor="#E8FFA7"><input name="salary" type="text"
                                                                                           class="input" value="<%=request.getParameter("salary")%>"></td>
                                 </tr>
 
@@ -78,7 +78,7 @@
                                     <td height="27" colspan="2" align="center" bgcolor="#E8FFA7"><input name="Submit"
                                                                                                         type="submit"
                                                                                                         class="button"
-                                                                                                        value="提交">
+                                                                                                        value="修改">
                                         &nbsp;&nbsp;
                                         <input name="Submit2" type="reset" class="button" value="重置"></td>
                                 </tr>

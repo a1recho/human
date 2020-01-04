@@ -1,14 +1,12 @@
 package com.controller;
 
 import com.domain.Employee;
-import com.domain.Recruitment;
 import com.service.DeptService;
 import com.service.EmployeeService;
 import com.service.PostService;
 import com.service.RecruitmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,7 +37,7 @@ public class adminController {
     @RequestMapping("updateUserInformation")//修改员工信息
     public String updateUserInformation(@ModelAttribute Employee employee){
         int i = employeeService.updateEmployee(employee);
-        return "forward:/listUser";
+        return "updateInformationSuccess";
     }
 
     @RequestMapping("delete")//删除员工信息

@@ -30,41 +30,42 @@
                         <table width="94%" border="0" align="center" cellpadding="0" cellspacing="1"
                                bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150">
                             <tr>
-                                <td height="22" colspan="4" align="center"><strong class="word_yellow">-发布应聘信息-</strong>
+                                <td height="22" colspan="4" align="center"><strong class="word_yellow">-详细应聘信息-</strong>
                                 </td>
                             </tr>
-                            <form name="jobForm" method="post" action="/recruitment" onSubmit="return jobValidate();">
+                            <form name="jobForm" method="post" action="recruitmentUpdate" onSubmit="return jobValidate();">
                                 <tr align="center">
                                     <td width="30%" height="27" bgcolor="#E8FFA7">招聘职位：</td>
                                     <td width="29%" height="22" align="left" bgcolor="#E8FFA7"><input name="postName"
                                                                                                       type="text"
+                                                                                                      value="<%=request.getParameter("PostName")%>"
                                                                                                       class="input">
                                     </td>
                                     <td width="18%" bgcolor="#E8FFA7">要求性别：</td>
-                                    <td width="23%" align="left" bgcolor="#E8FFA7"><input name="sex" type="text">
+                                    <td width="23%" align="left" bgcolor="#E8FFA7"><input name="sex" type="text" value="<%=request.getParameter("sex")%>">
                                 </tr>
                                 <tr align="center">
                                     <td width="30%" height="27" bgcolor="#E8FFA7">年&nbsp;&nbsp;&nbsp;&nbsp;龄：</td>
                                     <td height="22" align="left" bgcolor="#E8FFA7"><input name="age" type="text"
-                                                                                          class="input"></td>
+                                                                                          class="input" value="<%=request.getParameter("age")%>"></td>
                                     <td height="22" bgcolor="#E8FFA7">学历要求：</td>
                                     <td height="22" align="left" bgcolor="#E8FFA7"><input name="education" type="text"
-                                                                                          class="input"></td>
+                                                                                          class="input" value="<%=request.getParameter("education")%>"></td>
                                 </tr>
                                 <tr align="center">
                                     <td width="30%" height="27" bgcolor="#E8FFA7">是否工作经验优先：</td>
                                     <td height="22" align="left" bgcolor="#E8FFA7"><input name="experience" type="text"
-                                                                                          class="input"></td>
+                                                                                          class="input" value="<%=request.getParameter("experience")%>"></td>
                                     <td width="30%" height="27" align="center" bgcolor="#E8FFA7">联系电话：</td>
                                     <td height="22" align="left" bgcolor="#E8FFA7"><input name="phone" type="text"
-                                                                                          class="input"></td>
+                                                                                          class="input" value="<%=request.getParameter("phone")%>"></td>
                                 </tr>
                                 <tr>
                                     <td width="30%" height="22" align="center" bgcolor="#E8FFA7">岗位详细要求：</td>
                                     <td height="22" colspan="3" align="left" bgcolor="#E8FFA7"><textarea name="content"
                                                                                                          cols="50"
                                                                                                          rows="6"
-                                                                                                         class="input"></textarea>
+                                                                                                         class="input"><%=request.getParameter("content")%></textarea>
                                     </td>
                                 </tr>
 
@@ -72,9 +73,9 @@
                                     <td height="30" colspan="4" align="center" bgcolor="#E8FFA7"><input name="Submit"
                                                                                                         type="submit"
                                                                                                         class="button"
-                                                                                                        value="提交">&nbsp;&nbsp;
-                                        <input name="Submit2" type="reset" class="button" value="重置">&nbsp;&nbsp;
-                                        <input  type="reset" class="button" onclick="window.location.href='manage.jsp'" value="返回">
+                                                                                                        value="修改">&nbsp;&nbsp;
+                                        <input name="Submit2" type="button" class="button"  onclick="window.location.href='deleteRecruitment?id=idNo&idNo=<%=request.getParameter("idNo")%>'"  value="删除">&nbsp;&nbsp;
+                                        <input  type="button" class="button" onclick="window.location.href='listRecruitment'" value="返回">
                                     </td>
                                 </tr>
                             </form>
@@ -83,7 +84,7 @@
                         <!-------------->        </td>
                 </tr>
             </table>
-            <%--<jsp:include page="copyright.html"/>--%></td>
+           </td>
     </tr>
 </table>
 </body>
