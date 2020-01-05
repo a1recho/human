@@ -15,6 +15,41 @@
         <result property="content" column="content"/>
     </resultMap>
 
+    <resultMap type="Resume" id="PushedResumeResultMap" >
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="postName" column="post_name"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="education" column="education"/>
+        <result property="phone" column="phone"/>
+        <result property="age" column="age"/>
+        <result property="experience" column="experience"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <sql id="selectSql">
+SELECT
+resume.id,
+resume.user_id,
+resume.name,
+resume.sex,
+resume.age,
+resume.education,
+resume.phone,
+resume.experience,
+resume.content,
+recruitment.post_name
+FROM
+resume
+INNER JOIN r2r ON r2r.resume_id = resume.id
+INNER JOIN recruitment ON r2r.recruitment_id = recruitment.id
+    </sql>
+
+    <select id="getPushedResume" parameterType="com.domain.Resume" resultMap="PushedResumeResultMap">
+    <include refid="selectSql"/>
+    </select>
+
     <select id="selectResume" parameterType="com.domain.Resume" resultMap="ResumeResultMap">
         SELECT *
         FROM resume

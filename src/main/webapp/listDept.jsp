@@ -59,8 +59,7 @@
                                 <td height="22" align="center" bgcolor="#FFFFFF"><%=dept.getDeptContent()%>
                                 </td>
                                 <td height="22" align="center" bgcolor="#FFFFFF">
-                                        <a href="deptUpdate.jsp?id=idNo&idNo=<%=dept.getId()%>&id=DeptName&DeptName=<%=dept.getDeptName()%>&id=DeptContent&DeptContent=<%=dept.getDeptContent()%>">修改信息</a>&nbsp;
-                                    <a href="addDept.jsp">添加部门</a>
+                                    <a href="deptUpdate.jsp?id=idNo&idNo=<%=dept.getId()%>&id=DeptName&DeptName=<%=dept.getDeptName()%>&id=DeptContent&DeptContent=<%=dept.getDeptContent()%>">修改信息</a>&nbsp;
                                     <a href="deleteDept?id=idNo&idNo=<%=dept.getId()%>">删除</a></td>
                             </tr>
                             <%

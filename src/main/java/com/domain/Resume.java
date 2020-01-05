@@ -6,6 +6,8 @@ public class Resume {
 
     private int userId;
 
+    private String PostName;
+
     private String name;
 
     private String sex;
@@ -34,6 +36,14 @@ public class Resume {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getPostName() {
+        return PostName;
+    }
+
+    public void setPostName(String postName) {
+        PostName = postName;
     }
 
     public String getName() {

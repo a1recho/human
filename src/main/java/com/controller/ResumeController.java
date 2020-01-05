@@ -46,7 +46,14 @@ public class ResumeController {
         return "listResume";
     }
 
-    @RequestMapping("pushResume/{id}")
+    @RequestMapping("listPushedResume")//查看已投递的简历
+    public String listPushedResume(HttpServletRequest request){
+        List<Resume> resumes = resumeService.getPushedResume();
+        request.setAttribute("resumes", resumes);
+        return "listPushedResume";
+    }
+
+    @RequestMapping("pushResume/{id}")//向招聘投递简历
     public String pushResume(@PathVariable int id, HttpServletRequest request){
         R2r r2r =new R2r();
         r2r.setRecruitmentId(id);
