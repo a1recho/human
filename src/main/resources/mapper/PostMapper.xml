@@ -31,12 +31,12 @@
     <insert id="insertPost" parameterType="com.domain.Post" useGeneratedKeys="true" keyProperty="id">
         insert into post(
         <if test="id != null and id != 0">id,</if>
-        <if test="postName != null and postName != ''">post_name,</if>
-        <if test="postContent != null and postContent != ''">post_content,</if>
+        <if test="postName != null and postName != ''">post_name</if>
+        <if test="postContent != null and postContent != ''">,post_content</if>
         )values (
         <if test="id != null and id != 0">#{id},</if>
-        <if test="postName != null and postName != ''">#{postName},</if>
-        <if test="postContent != null and postContent != ''">#{postContent},</if>
+        <if test="postName != null and postName != ''">#{postName}</if>
+        <if test="postContent != null and postContent != ''">,#{postContent}</if>
         )
     </insert>
 
