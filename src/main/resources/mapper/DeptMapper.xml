@@ -32,8 +32,8 @@
         <if test="deptName != null and deptName != ''">dept_name</if>
         <if test="deptContent != null and deptContent != ''">,dept_content</if>
         )values (
-        <if test="username != null and username != ''">#{username}</if>
-        <if test="password != null and password != ''">,#{password}</if>
+        <if test="deptName != null and deptName != ''">#{deptName}</if>
+        <if test="deptContent != null and deptContent != ''">,#{deptContent}</if>
         )
     </insert>
 
@@ -41,7 +41,7 @@
         update dept
         <set>
             <if test="deptName != null and deptName != ''">dept_name = #{deptName},</if>
-            <if test="deptContent != null and deptContent != ''">deptContent = #{deptContent}</if>
+            <if test="deptContent != null and deptContent != ''">dept_content = #{deptContent}</if>
         </set>
         where id=#{id}
     </update>
