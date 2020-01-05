@@ -11,6 +11,7 @@ function change(img,subMenu,path,type){
 	}
 }
 </script>
+
 <div style="position:absolute">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -31,14 +32,14 @@ function change(img,subMenu,path,type){
             <td onMouseOver="change(ImgDept,dept,'dept_r',1)" onMouseOut="change(ImgDept,dept,'dept_b',0)"><a href="#"><img id="ImgDept" src="images/dept_b.GIF" width="111" height="48" border="0"></a><div id="dept" style="background-color:#F3FFD5; border:#75A102 1px solid; width:240px; position:absolute; display:none;left:222px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href=".jsp">浏览部门</a><a href=".jsp">&nbsp;添加部门</a></td>
+                        <td align="center"><a href="listDept">部门详情</a></td>
                     </tr>
                 </table>
             </div></td>
             <td onMouseOver="change(ImgPost,post,'post_r',1)" onMouseOut="change(ImgPost,post,'post_r',0)"><a href="#"><img id="ImgPost" src="images/post_r.GIF" width="110" height="48" border="0"></a><div id="post" style="background-color:#F3FFD5; border:#75A102 1px solid; width:180px; position:absolute; display:none; left:332px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href=".jsp">浏览职位 &nbsp;</a><a href=".jsp">添加职位</a></td>
+                        <td align="center"><a href="/listPost">职位详情</a></td>
                     </tr>
                 </table>
             </div></td>

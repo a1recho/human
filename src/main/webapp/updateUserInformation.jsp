@@ -80,7 +80,7 @@
                                                                                                         class="button"
                                                                                                         value="修改">
                                         &nbsp;&nbsp;
-                                        <input name="Submit2" type="reset" class="button" value="重置"></td>
+                                        <input  type="button" class="button" onclick="window.location.href='listUser'" value="返回">
                                 </tr>
                             </form>
                         </table>
