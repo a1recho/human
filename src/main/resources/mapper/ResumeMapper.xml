@@ -99,7 +99,7 @@ INNER JOIN recruitment ON r2r.recruitment_id = recruitment.id
         <if test="age != null and age != ''">,#{age}</if>
         <if test="phone != null and phone != ''">,#{phone}</if>
         <if test="experience != null and experience != ''">,#{experience}</if>
-        <if test="content != null and content != ''">,content</if>
+        <if test="content != null and content != ''">,#{content}</if>
         )
     </insert>
 

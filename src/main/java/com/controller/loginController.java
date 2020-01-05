@@ -25,13 +25,13 @@ public class loginController {
         if (u.getPassword().equals(user.getPassword())) {
             if (u.getRole() == 0) {
                 Cookie cookie = new Cookie("userId",Integer.toString(u.getId()));
-                cookie.setMaxAge(450);
+                cookie.setMaxAge(60);
                 response.addCookie(cookie);
                 return "manage";
             }
             else {
                 Cookie cookie = new Cookie("userId",Integer.toString(u.getId()));
-                cookie.setMaxAge(450);
+                cookie.setMaxAge(60);
                 response.addCookie(cookie);
                 return "user";
             }
