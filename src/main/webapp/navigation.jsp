@@ -28,24 +28,17 @@ function change(img,subMenu,path,type){
                     </tr>
                 </table>
             </div></td>
-            <td onMouseOver="change(ImgEducate,NEducate,'NEducate_r',1)" onMouseOut="change(ImgEducate,NEducate,'NEducate_b',0)"><a href="#"><img id="ImgEducate" src="images/NEducate_b.GIF" width="111" height="48" border="0"></a><div id="NEducate" style="background-color:#F3FFD5; border:#75A102 1px solid; width:240px; position:absolute; display:none;left:222px;  top: 34px;">
+            <td onMouseOver="change(ImgDept,dept,'dept_r',1)" onMouseOut="change(ImgDept,dept,'dept_b',0)"><a href="#"><img id="ImgDept" src="images/dept_b.GIF" width="111" height="48" border="0"></a><div id="dept" style="background-color:#F3FFD5; border:#75A102 1px solid; width:240px; position:absolute; display:none;left:222px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="listeducate.jsp">浏览培训计划</a><a href="addeducate.jsp">&nbsp;添加培训计划</a><a href="listeducate.jsp">&nbsp;查看培训总结</a></td>
+                        <td align="center"><a href=".jsp">浏览部门</a><a href=".jsp">&nbsp;添加部门</a></td>
                     </tr>
                 </table>
             </div></td>
-            <td onMouseOver="change(ImgInstitution,NInstitution,'NInstitution_r',1)" onMouseOut="change(ImgInstitution,NInstitution,'NInstitution_b',0)"><a href="#"><img id="ImgInstitution" src="images/NInstitution_b.GIF" width="110" height="48" border="0"></a><div id="NInstitution" style="background-color:#F3FFD5; border:#75A102 1px solid; width:180px; position:absolute; display:none; left:332px;  top: 34px;">
+            <td onMouseOver="change(ImgPost,post,'post_r',1)" onMouseOut="change(ImgPost,post,'post_r',0)"><a href="#"><img id="ImgPost" src="images/post_r.GIF" width="110" height="48" border="0"></a><div id="post" style="background-color:#F3FFD5; border:#75A102 1px solid; width:180px; position:absolute; display:none; left:332px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="listinstitution.jsp">浏览奖惩制度 &nbsp;</a><a href="addinstitution.jsp">添加奖惩制度</a></td>
-                    </tr>
-                </table>
-            </div></td>
-            <td onMouseOver="change(ImgStipend,NStipend,'NStipend_r',1)" onMouseOut="change(ImgStipend,NStipend,'NStipend_b',0)"><a href="#"><img id="ImgStipend" src="images/NStipend_b.GIF" width="110" height="48" border="0"></a><div id="NStipend" style="background-color:#F3FFD5; border:#75A102 1px solid; width:180px; position:absolute; display:none;left:446px;  top: 34px;">
-                <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="center"><a href="liststipend.jsp">浏览薪金列表</a><a href="addstipend.jsp"> &nbsp;添加薪金数据</a></td>
+                        <td align="center"><a href=".jsp">浏览职位 &nbsp;</a><a href=".jsp">添加职位</a></td>
                     </tr>
                 </table>
             </div></td>

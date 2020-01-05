@@ -34,7 +34,7 @@
                         <table width="94%" border="0" align="center" cellpadding="0" cellspacing="1"
                                bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" bgcolor="#97B150">
                             <tr>
-                                <td height="22" colspan="7" align="center"><strong class="word_yellow">-浏览员工信息-</strong>
+                                <td height="22" colspan="7" align="center"><strong class="word_yellow">-浏览招聘信息-</strong>
                                 </td>
                             </tr>
                             <tr class="tdhui">
