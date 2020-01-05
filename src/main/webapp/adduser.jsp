@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="com.domain.Post" %>
+<%@ page import="com.domain.Dept" %>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -58,10 +61,14 @@
                                     <td width="33%" height="27" align="center" bgcolor="#E8FFA7">ְ职位：</td>
                                     <td height="27" align="left" bgcolor="#E8FFA7">
                                         <select name="postName">
-                                            <option value="经理">经理</option>
-                                            <option value="总监">总监</option>
-                                            <option value="员工">员工</option>
-                                            <option value="董事">董事</option>
+                                            <%
+                                                List<Post> posts = (List<Post>) request.getAttribute("posts");
+                                                Iterator<Post> iterator = posts.iterator();
+                                                while (iterator.hasNext()){
+                                                    Post p = iterator.next();
+                                            %>
+                                            <option value="<%=p.getPostName()%>"><%=p.getPostName()%></option>
+                                            <%}%>
                                         </select>
                                     </td>
                                 </tr>
@@ -69,11 +76,14 @@
                                     <td height="27" align="center" bgcolor="#E8FFA7">所在部门：</td>
                                     <td height="27" align="left" bgcolor="#E8FFA7">
                                         <select name="deptName">
-                                            <option value="营销部">营销部</option>
-                                            <option value="人事部">人事部</option>
-                                            <option value="决策部">决策部</option>
-                                            <option value="后勤部">后勤部</option>
-                                            <option value="安保部">安保部</option>
+                                            <%
+                                                List<Dept> depts = (List<Dept>) request.getAttribute("depts");
+                                                Iterator<Dept> iterator1 = depts.iterator();
+                                                while (iterator1.hasNext()){
+                                                    Dept dept = iterator1.next();
+                                            %>
+                                            <option value="<%=dept.getDeptName()%>"><%=dept.getDeptName()%></option>
+                                            <%}%>
                                         </select>
                                     </td>
                                 </tr>

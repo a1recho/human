@@ -1,19 +1,30 @@
 package com.controller;
+import com.domain.Dept;
+import com.domain.Employee;
+import com.domain.Post;
 import com.domain.User;
+import com.mysql.cj.Session;
+import com.service.DeptService;
+import com.service.PostService;
 import com.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
 public class UserController {
     @Autowired UserService userService;
+    @Autowired
+    PostService postService;
+    @Autowired
+    DeptService deptService;
 
     @RequestMapping("userList")
     public String selectUser(User user,Model model){
@@ -47,6 +58,15 @@ public class UserController {
         }else{
             return "error";
         }
+    }
+
+    @RequestMapping("selectPd")//select下拉框,添加信息用
+    public String selectPd(@ModelAttribute Post post, @ModelAttribute Dept dept, HttpServletRequest request){
+        List<Post> posts = postService.selectPost(post);
+        request.setAttribute("posts",posts);
+        List<Dept> depts = deptService.selectDept(dept);
+        request.setAttribute("depts",depts);
+        return "adduser";
     }
 
 }

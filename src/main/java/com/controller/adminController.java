@@ -1,6 +1,8 @@
 package com.controller;
 
+import com.domain.Dept;
 import com.domain.Employee;
+import com.domain.Post;
 import com.service.DeptService;
 import com.service.EmployeeService;
 import com.service.PostService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -28,9 +31,14 @@ public class adminController {
 
 
     @RequestMapping("listUser")//查看员工信息
-    public String listUser(@ModelAttribute Employee employee, HttpServletRequest request){
+    public String listUser(@ModelAttribute Post post, @ModelAttribute Dept dept, @ModelAttribute Employee employee, HttpServletRequest request){
         List<Employee> employees = employeeService.selectEmployee(employee);
         request.setAttribute("employees", employees);
+        List<Post> posts = postService.selectPost(post);
+        List<Dept> depts = deptService.selectDept(dept);
+        HttpSession session =request.getSession();
+        session.setAttribute("posts",posts);
+        session.setAttribute("depts",depts);
         return "listuser";
     }
 
@@ -51,7 +59,7 @@ public class adminController {
         employee.setDeptId(deptService.selectDeptByDeptName(employee.getDeptName()).getId());
         employee.setPostId(postService.selectPostByPostName(employee.getPostName()).getId());
         employeeService.insertEmployee(employee);
-        return "forward:/listUser";
+        return "addUserInformationSuccess";
     }
 
     @RequestMapping("selectInformation")//模糊查询员工信息

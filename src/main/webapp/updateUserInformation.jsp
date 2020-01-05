@@ -1,4 +1,10 @@
+<%@ page import="com.domain.Dept" %>
+<%@ page import="org.springframework.web.context.request.SessionScope" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="com.domain.Post" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,13 +65,40 @@
 
                                 <tr>
                                     <td width="33%" height="27" align="center" bgcolor="#E8FFA7">职位：</td>
-                                    <td height="27" align="left" bgcolor="#E8FFA7"><input name="postName" type="text"
-                                                                                          class="input" value="<%=request.getParameter("PostName")%>" readonly></td>
+                                    <td height="27" align="left" bgcolor="#E8FFA7">
+                                        <select name="postName">
+                                            <option value="<%=request.getParameter("PostName")%>"><%=request.getParameter("PostName")%></option>
+                                            <%
+                                                List<Post> posts = (List<Post>)session.getAttribute("posts");
+                                                Iterator<Post> iterator = posts.iterator();
+                                                while (iterator.hasNext()){
+                                                    Post post = iterator.next();
+                                                    if(post.getPostName().equals(request.getParameter("PostName")))
+                                                        continue;
+                                            %>
+                                            <option value="<%=post.getPostName()%>"><%=post.getPostName()%></option>
+                                            <%}%>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td height="27" align="center" bgcolor="#E8FFA7">所在部门：</td>
-                                    <td height="27" align="left" bgcolor="#E8FFA7"><input name="deptName" type="text"
-                                                                                          class="input" value="<%=request.getParameter("DeptName")%>" readonly></td>
+                                    <td height="27" align="left" bgcolor="#E8FFA7">
+
+                                        <select name="deptName">
+                                        <option value="<%=request.getParameter("DeptName")%>"><%=request.getParameter("DeptName")%></option>
+                                            <%
+                                                List<Dept> depts = (List<Dept>)session.getAttribute("depts");
+                                                Iterator<Dept> iterator2 = depts.iterator();
+                                                while (iterator2.hasNext()){
+                                                    Dept dept = iterator2.next();
+                                                    if(dept.getDeptName().equals(request.getParameter("DeptName")))
+                                                        continue;
+                                                   %>
+                                            <option value="<%=dept.getDeptName()%>"><%=dept.getDeptName()%></option>
+                                            <%}%>
+                                        </select>
+                                                                                          </td>
                                 </tr>
 
                                 <tr>

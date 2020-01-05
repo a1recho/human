@@ -2,8 +2,6 @@
 <%@ page isELIgnored="false" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="com.domain.Employee" %>
-<%@ page import="com.domain.Dept" %>
 <%@ page import="com.domain.Post" %>
 
 
