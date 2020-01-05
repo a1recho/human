@@ -44,6 +44,8 @@ public class adminController {
 
     @RequestMapping("updateUserInformation")//修改员工信息
     public String updateUserInformation(@ModelAttribute Employee employee){
+        employee.setDeptId(deptService.selectDeptByDeptName(employee.getDeptName()).getId());
+        employee.setPostId(postService.selectPostByPostName(employee.getPostName()).getId());
         int i = employeeService.updateEmployee(employee);
         return "updateInformationSuccess";
     }
