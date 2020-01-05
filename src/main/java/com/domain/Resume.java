@@ -4,15 +4,21 @@ public class Resume {
 
     private int id;
 
+    private int userId;
+
     private String name;
 
     private String sex;
 
-    private String education;
-
     private int age;
 
+    private String education;
+
+    private String phone;
+
     private String experience;
+
+    private String content;
 
     public int getId() {
         return id;
@@ -20,6 +26,14 @@ public class Resume {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -54,11 +68,27 @@ public class Resume {
         this.age = age;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getExperience() {
         return experience;
     }
 
     public void setExperience(String experience) {
         this.experience = experience;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

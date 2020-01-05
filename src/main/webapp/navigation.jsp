@@ -42,7 +42,7 @@ function change(img,subMenu,path,type){
                     </tr>
                 </table>
             </div></td>
-            <td><a href="logout.jsp"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
+            <td><a href="/loginOut"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
             <td><img src="images/NNull.GIF" width="130" height="48"></td>
         </tr>
     </table>

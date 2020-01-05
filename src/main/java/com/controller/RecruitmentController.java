@@ -24,6 +24,13 @@ public class RecruitmentController {
         return "listRecruitment";
     }
 
+    @RequestMapping("listRecruitmentForUser")//查看已发布的招聘信息
+    public String listRecruitmentForUser(@ModelAttribute Recruitment recruitment, HttpServletRequest request){
+        List<Recruitment> recruitments = recruitmentService.selectRecruitment(recruitment);
+        request.setAttribute("recruitments", recruitments);
+        return "listRecruitmentForUser";
+    }
+
     @RequestMapping("recruitment")//发布招聘信息
     public String addRecruitment(@ModelAttribute Recruitment recruitment) {
         int i = recruitmentService.insertRecruitment(recruitment);
