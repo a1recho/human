@@ -25,25 +25,25 @@ function change(img,subMenu,path,type){
             <td onMouseOver="change(ImgJob,NJob,'NJob_r',1)" onMouseOut="change(ImgJob,NJob,'NJob_b',0)"><a href="#"><img id="ImgJob" src="images/NJob_b.GIF" width="110" height="48" border="0"></a><div id="NJob" style="background-color:#F3FFD5; border:#75A102 1px solid; width:230px; position:absolute; left:110px; display:none; top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="">应聘信息</a><td align="center"><a href="/listRecruitment">已发布</a>&nbsp;<a href="recruitment.jsp">添加应聘信息&nbsp;</a></td>
+                        <td align="center"><a href="/listPushedResume">应聘信息</a><td align="center"><a href="/listRecruitment">已发布</a>&nbsp;<a href="recruitment.jsp">添加招聘信息&nbsp;</a></td>
                     </tr>
                 </table>
             </div></td>
             <td onMouseOver="change(ImgDept,dept,'dept_r',1)" onMouseOut="change(ImgDept,dept,'dept_b',0)"><a href="#"><img id="ImgDept" src="images/dept_b.GIF" width="111" height="48" border="0"></a><div id="dept" style="background-color:#F3FFD5; border:#75A102 1px solid; width:240px; position:absolute; display:none;left:222px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="listDept">部门详情</a></td>
+                        <td align="center"><a href="listDept">部门详情  </a><a href="addDept.jsp">添加部门&nbsp</a></td>
                     </tr>
                 </table>
             </div></td>
             <td onMouseOver="change(ImgPost,post,'post_r',1)" onMouseOut="change(ImgPost,post,'post_r',0)"><a href="#"><img id="ImgPost" src="images/post_r.GIF" width="110" height="48" border="0"></a><div id="post" style="background-color:#F3FFD5; border:#75A102 1px solid; width:180px; position:absolute; display:none; left:332px;  top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="/listPost">职位详情</a></td>
+                        <td align="center"><a href="/listPost">职位详情  </a><a href="addPost.jsp">添加职位&nbsp;</a></td>
                     </tr>
                 </table>
             </div></td>
-            <td><a href="logout.jsp"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
+            <td><a href="/loginOut"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
             <td><img src="images/NNull.GIF" width="130" height="48"></td>
         </tr>
     </table>

@@ -5,22 +5,66 @@
 <mapper namespace="com.dao.ResumeDao">
     <resultMap type="Resume" id="ResumeResultMap" >
         <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
         <result property="name" column="name"/>
         <result property="sex" column="sex"/>
         <result property="education" column="education"/>
+        <result property="phone" column="phone"/>
         <result property="age" column="age"/>
         <result property="experience" column="experience"/>
+        <result property="content" column="content"/>
     </resultMap>
+
+    <resultMap type="Resume" id="PushedResumeResultMap" >
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="postName" column="post_name"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="education" column="education"/>
+        <result property="phone" column="phone"/>
+        <result property="age" column="age"/>
+        <result property="experience" column="experience"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <sql id="selectSql">
+SELECT
+resume.id,
+resume.user_id,
+resume.name,
+resume.sex,
+resume.age,
+resume.education,
+resume.phone,
+resume.experience,
+resume.content,
+recruitment.post_name
+FROM
+resume
+INNER JOIN r2r ON r2r.resume_id = resume.id
+INNER JOIN recruitment ON r2r.recruitment_id = recruitment.id
+    </sql>
+
+    <select id="getPushedResume" parameterType="com.domain.Resume" resultMap="PushedResumeResultMap">
+    <include refid="selectSql"/>
+    </select>
 
     <select id="selectResume" parameterType="com.domain.Resume" resultMap="ResumeResultMap">
         SELECT *
         FROM resume
         <where>
+            <if test="userId != null and userId != '' ">
+                AND user_id like concat('%', #{userId}, '%')
+            </if>
             <if test="name != null and name != '' ">
                 AND name like concat('%', #{name}, '%')
             </if>
             <if test="sex != null and sex != '' ">
                 AND sex like concat('%', #{sex}, '%')
+            </if>
+            <if test="phone != null and phone != '' ">
+                AND phone like concat('%', #{phone}, '%')
             </if>
             <if test="education != null and education != '' ">
                 AND education like concat('%', #{education}, '%')
@@ -31,33 +75,45 @@
             <if test="experience != null and experience != '' ">
                 AND experience like concat('%', #{experience}, '%')
             </if>
+            <if test="content != null and content != '' ">
+                AND content like concat('%', #{content}, '%')
+            </if>
         </where>
     </select>
 
     <insert id="insertResume" parameterType="com.domain.Resume" useGeneratedKeys="true" keyProperty="id">
         insert into resume(
-        <if test="name != null and name != ''">name</if>
+        <if test="userId != null and userId != ''">user_id</if>
+        <if test="name != null and name != ''">,name</if>
         <if test="sex != null and sex != ''">,sex</if>
         <if test="education != null and education != ''">,education</if>
         <if test="age != null and age != ''">,age</if>
+        <if test="phone != null and phone != ''">,phone</if>
         <if test="experience != null and experience != ''">,experience</if>
+        <if test="content != null and content != ''">,content</if>
         )values (
-        <if test="name != null and name != ''">#{name}</if>
+        <if test="userId != null and userId != ''">#{userId}</if>
+        <if test="name != null and name != ''">,#{name}</if>
         <if test="sex != null and sex != ''">,#{sex}</if>
         <if test="education != null and education != ''">,#{education}</if>
         <if test="age != null and age != ''">,#{age}</if>
+        <if test="phone != null and phone != ''">,#{phone}</if>
         <if test="experience != null and experience != ''">,#{experience}</if>
+        <if test="content != null and content != ''">,#{content}</if>
         )
     </insert>
 
     <update id="updateResume" parameterType="com.domain.Resume">
         update resume
         <set>
+            <if test="userId != null and userId != ''">user_id = #{userId},</if>
             <if test="name != null and name != ''">name = #{name},</if>
             <if test="sex != null and sex != ''">sex = #{sex},</if>
             <if test="education != null and education != ''">education = #{education},</if>
             <if test="age != null and age != ''">age = #{age},</if>
-            <if test="experience != null and experience != ''">experience = #{experience}</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="experience != null and experience != ''">experience = #{experience},</if>
+            <if test="content != null and content != ''">content = #{content}</if>
         </set>
         where id=#{id}
     </update>

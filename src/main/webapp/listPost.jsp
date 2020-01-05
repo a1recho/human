@@ -59,7 +59,6 @@
                                 </td>
                                 <td height="22" align="center" bgcolor="#FFFFFF">
                                     <a href="postUpdate.jsp?id=idNo&idNo=<%=post.getId()%>&id=PostName&PostName=<%=post.getPostName()%>&id=PostContent&PostContent=<%=post.getPostContent()%>">修改信息</a>&nbsp;
-                                    <a href="addPost.jsp">添加职位</a>
                                     <a href="deletePost?id=idNo&idNo=<%=post.getId()%>">删除</a></td>
                             </tr>
                             <%

@@ -20,6 +20,11 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
+    public List<Resume> getPushedResume(){
+        return resumeDao.getPushedResume();
+    }
+
+    @Override
     public int insertResume(Resume resume){
         int rows = resumeDao.insertResume(resume);
         return rows;
