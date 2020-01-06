@@ -34,7 +34,7 @@ public class loginController {
             }
             else {
                 Cookie cookie = new Cookie("userId",Integer.toString(u.getId()));
-                cookie.setMaxAge(60);
+                //cookie.setMaxAge(60);
                 response.addCookie(cookie);
                 return "user";
             }

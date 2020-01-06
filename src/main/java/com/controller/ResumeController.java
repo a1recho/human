@@ -105,20 +105,19 @@ public class ResumeController {
 
     @RequestMapping("addResume")//添加简历信息
     public String addResume(@ModelAttribute Resume resume,HttpServletRequest request) {
-        List<Resume> resumes = resumeService.selectResume(resume);/*查找是否有该简历信息，若有添加失败*/
-        Iterator<Resume> iterator = resumes.iterator();
-        while (iterator.hasNext()){
-            Resume next = iterator.next();
-            if(next.getUserId()==resume.getUserId()){
-                return "addResumeError";
-            }
-        }
-
-
-
+        Resume re =new Resume();
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("userId")) {
+                System.out.println(cookie.getValue());
+                List<Resume> resumes = resumeService.selectResume(re);/*添加之前先查询，若已经存在，返回错误*/
+                System.out.println(resumes);
+                Iterator<Resume> iterator = resumes.iterator();
+                while (iterator.hasNext()){
+                    Resume next = iterator.next();
+                    if(next.getUserId()==Integer.parseInt(cookie.getValue()))
+                        return "addResumeError";
+                }
                 resume.setUserId(Integer.parseInt(cookie.getValue()));
             }
         }
