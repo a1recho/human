@@ -1,6 +1,9 @@
 package com.controller;
 
+import com.domain.Dept;
+import com.domain.Post;
 import com.domain.Recruitment;
+import com.service.PostService;
 import com.service.RecruitmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,8 @@ import java.util.List;
 public class RecruitmentController {
     @Autowired
     RecruitmentService recruitmentService;
+    @Autowired
+    PostService postService;
 
     @RequestMapping("listRecruitment")//查看已发布的招聘信息
     public String listRecruitment(@ModelAttribute Recruitment recruitment, HttpServletRequest request) {
@@ -52,5 +57,14 @@ public class RecruitmentController {
         int i = recruitmentService.deleteRecruitmentById(id);
         return "deleteSuccess";
     }
+
+    @RequestMapping("selectPost")//select下拉框,添加招聘信息用
+    public String selectPd(@ModelAttribute Post post,  HttpServletRequest request){
+        List<Post> posts = postService.selectPost(post);
+        request.setAttribute("posts",posts);
+
+        return "recruitment";
+    }
+
 
 }

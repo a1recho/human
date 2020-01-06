@@ -11,7 +11,8 @@
 <table width="100%" height="100%" border="1">
     <tr>
         <td align="center" >操作成功！！！</td>
-        <% response.setHeader("refresh","3;URL=/listResumeForUser");%>
+        <% response.setHeader("refresh","3;URL=http://localhost:8080/listPushedResume");%>
+
     </tr>
 </table>
 </body>

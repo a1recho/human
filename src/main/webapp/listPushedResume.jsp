@@ -43,9 +43,10 @@
                                 <td width="10%" height="22" align="center" bgcolor="#E8FFA7">性别</td>
                                 <td width="10%" height="22" align="center" bgcolor="#E8FFA7">年龄</td>
                                 <td width="10%" height="22" align="center" bgcolor="#E8FFA7">学历</td>
-                                <td width="15%" height="22" align="center" bgcolor="#E8FFA7">工作经验</td>
+                                <td width="10%" height="22" align="center" bgcolor="#E8FFA7">工作经验</td>
                                 <td width="15%" height="22" align="center" bgcolor="#E8FFA7">联系电话</td>
-                                <td width="15%" height="22" align="center" bgcolor="#E8FFA7">备注</td>
+                                <td width="10%" height="22" align="center" bgcolor="#E8FFA7">备注</td>
+                                <td width="10%" height="22" align="center" bgcolor="#E8FFA7">操作</td>
                             </tr>
                             <%
                                 List<Resume> resumes = (List<Resume>) request.getAttribute("resumes");
@@ -68,6 +69,7 @@
                                 </td>
                                 <td height="22" align="center" bgcolor="#FFFFFF"><%=re.getPhone()%>&nbsp;</td>
                                 <td height="22" align="center" bgcolor="#FFFFFF"><%=re.getContent()%>&nbsp;</td>
+                                <td height="22" align="center" bgcolor="#FFFFFF"><a href="/deletePushResume/<%=re.getId()%>/<%=re.getPostName()%>">拒绝&nbsp;</a></td>
                             </tr>
                             <%
                                 }

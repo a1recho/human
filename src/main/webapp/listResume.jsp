@@ -104,7 +104,7 @@
                                 <%}%>
                                 <tr>
                                     <td height="30" colspan="4" align="center" bgcolor="#E8FFA7">&nbsp;
-                                        <input  type="button" class="button" onclick="window.location.href='user.jsp'" value="返回">
+                                        <input  type="button" class="button" onclick="window.location.href='user.jsp'" value="确认">
                                     </td>
                                 </tr>
                             </form>

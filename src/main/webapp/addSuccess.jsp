@@ -11,7 +11,7 @@
 <table width="100%" height="100%" border="1">
     <tr>
         <td align="center" >Ìí¼Ó³É¹¦£¡£¡£¡</td>
-        <% response.setHeader("refresh","3;URL=recruitment.jsp");%>
+        <% response.setHeader("refresh","3;URL=listRecruitment");%>
     </tr>
 </table>
 </body>

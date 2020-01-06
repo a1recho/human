@@ -1,3 +1,6 @@
+<%@ page import="com.domain.Post" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,9 +39,17 @@
                             <form name="jobForm" method="post" action="/recruitment" onSubmit="return jobValidate();">
                                 <tr align="center">
                                     <td width="30%" height="27" bgcolor="#E8FFA7">招聘职位：</td>
-                                    <td width="29%" height="22" align="left" bgcolor="#E8FFA7"><input name="postName"
-                                                                                                      type="text"
-                                                                                                      class="input">
+                                    <td width="29%" height="22" align="left" bgcolor="#E8FFA7">
+                                        <select name="postName">
+                                            <%
+                                                List<Post> posts = (List<Post>) request.getAttribute("posts");
+                                                Iterator<Post> iterator = posts.iterator();
+                                                while (iterator.hasNext()){
+                                                    Post p = iterator.next();
+                                            %>
+                                            <option value="<%=p.getPostName()%>"><%=p.getPostName()%></option>
+                                            <%}%>
+                                        </select>
                                     </td>
                                     <td width="18%" bgcolor="#E8FFA7">要求性别：</td>
                                     <td width="23%" align="left" bgcolor="#E8FFA7"><input name="sex" type="text">

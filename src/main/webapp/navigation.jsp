@@ -25,7 +25,7 @@ function change(img,subMenu,path,type){
             <td onMouseOver="change(ImgJob,NJob,'NJob_r',1)" onMouseOut="change(ImgJob,NJob,'NJob_b',0)"><a href="#"><img id="ImgJob" src="images/NJob_b.GIF" width="110" height="48" border="0"></a><div id="NJob" style="background-color:#F3FFD5; border:#75A102 1px solid; width:230px; position:absolute; left:110px; display:none; top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="/listPushedResume">应聘信息</a><td align="center"><a href="/listRecruitment">已发布</a>&nbsp;<a href="recruitment.jsp">添加招聘信息&nbsp;</a></td>
+                        <td align="center"><a href="/listPushedResume">应聘信息</a><td align="center"><a href="/listRecruitment">已发布</a>&nbsp;<a href="/selectPost">添加招聘信息&nbsp;</a></td>
                     </tr>
                 </table>
             </div></td>
@@ -43,7 +43,7 @@ function change(img,subMenu,path,type){
                     </tr>
                 </table>
             </div></td>
-            <td><a href="/loginOut"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
+            <td><a href="index.jsp"><img src="images/NExit_b.GIF" width="98" height="48" border="0" onMouseOver="change(this,null,'NExit_r',1)" onMouseOut="change(this,null,'NExit_b',0)"></a></td>
             <td><img src="images/NNull.GIF" width="130" height="48"></td>
         </tr>
     </table>
