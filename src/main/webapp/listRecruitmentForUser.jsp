@@ -77,7 +77,7 @@
                             } else {
                             %>
                             <tr>
-                                <td height="22" colspan="7" align="center" bgcolor="#E8FFA7">对不起，没有添加应聘信息！！！</td>
+                                <td height="22" colspan="7" align="center" bgcolor="#E8FFA7">对不起，没有招聘信息！！！</td>
                             </tr>
                             <%}%>
                         </table>
