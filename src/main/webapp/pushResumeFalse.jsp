@@ -10,7 +10,7 @@
 <body>
 <table width="100%" height="100%" border="1">
     <tr>
-        <td align="center" >您已经投过简历了，不可重复投递！！！</td>
+        <td align="center" >您已经投过简历了（或者未添加简历信息），投递失败！！！</td>
         <% response.setHeader("refresh","3;URL=/listRecruitmentForUser");%>
     </tr>
 </table>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -93,6 +94,15 @@ public class ResumeController {
             }
         }
 
+        Integer[] array = new Integer[1000];/*存放userId*/
+        for(int i=0;i<resumeList.size();i++){/*判断是否添加了简历信息*/
+            Resume resume1 = resumeList.get(i);
+            array[i]=resume1.getUserId();/*将userId存到数组*/
+        }
+       if(Arrays.asList(array).contains(userId)==false)/*判断简历表是否有该用户的信息*/
+           return "pushResumeFalse";
+
+
         resume.setUserId(userId);
         List<Resume> resumes =resumeService.selectResume(resume);
         for (Resume resume1 :resumes){
@@ -153,11 +163,11 @@ public class ResumeController {
        List<Recruitment> recruitments= recruitmentService.selectRecruitment(recruitment);
         Iterator<Recruitment> recruitmentIterator = recruitments.iterator();
         Iterator<R2r> r2rIterator = r2rs.iterator();
-        while(r2rIterator.hasNext()){/*循环r2r表*/
+        /*while(r2rIterator.hasNext()){*//*循环r2r表*//*
             R2r r2r1 = r2rIterator.next();
-            if(r2r1.getResumeId()==id){/*表中的应聘id和传入id相同，记录该id*/
+            if(r2r1.getResumeId()==id){*//*表中的应聘id和传入id相同，记录该id*//*
               int ids  =  r2r1.getId();
-                while(recruitmentIterator.hasNext()){/*循环招聘表，找到招聘职位和传入职位相同，得到该id，再到r2r表通过该id寻找表id，根据表id删除该记录*/
+                while(recruitmentIterator.hasNext()){*//*循环招聘表，找到招聘职位和传入职位相同，得到该id，再到r2r表通过该id寻找表id，根据表id删除该记录*//*
                     Recruitment recruitment1 = recruitmentIterator.next();
                     if(recruitment1.getPostName().equals(postName)){
                         int id1 = recruitment1.getId();
@@ -171,7 +181,54 @@ public class ResumeController {
                     }
                 }
             }
+        }*/
+        /*拒绝应聘2.0*/
+        Integer[] resume_id =new Integer[1000];/*存放r2r表中resune对应的id，也就是传值用户简历id*/
+        for(int i=0;i<r2rs.size();i++){
+            R2r r = r2rs.get(i);
+            resume_id[i]=r.getId();
         }
+        Integer[] recruitment_id =new Integer[1000];/*存放招聘表中传过来职位对应的id*/
+        int n=0;
+        for (int j=0;j<recruitments.size();j++){
+            Recruitment recruitment1 = recruitments.get(j);
+            if(recruitment1.getPostName().equals(postName)){/*在招聘表中查找职位对应的Id*/
+                recruitment_id[n]=recruitment1.getId();
+                n++;
+                //System.out.println( recruitment_id[n-1]);
+            }
+        }
+        Integer[] recruitment_id2=new Integer[1000];/*存放r2r表中recruitment_id对应的id，也就是传职位值所对应用户的id，再通过该id在r2r表中查找*/
+        List<Integer> integers = Arrays.asList(recruitment_id);
+        for(int i=0;i<r2rs.size();i++){
+            R2r r = r2rs.get(i);
+            for(int j=0;j<integers.size();j++){
+                Integer integer = integers.get(j);
+                if(integers.get(j)==null)
+                    break;
+               // System.out.println(integers.get(j));
+                if(r.getRecruitmentId()==integer){
+                     recruitment_id2[j]= r.getId();
+                }
+            }
+        }
+
+        List<Integer> integers1 = Arrays.asList(resume_id);/*对比两个数组是否有相等的值*/
+        List<Integer> integers2 = Arrays.asList(recruitment_id2);
+        for(int m=0;m<r2rs.size();m++){
+            for(int i=0;i<integers1.size();i++){
+                Integer integer = integers1.get(i);
+                for(int j=0;j<integers2.size();j++){
+                    Integer integer1 = integers2.get(j);
+                    System.out.println(integers2.get(j));
+                    if(integer==integer1){
+                        r2rService.deleteR2rById(integer);
+                        return "refuseSuccess";
+                    }
+                }
+            }
+        }
+
 
         //System.out.println(id+postName);
                return "refuseSuccess";
