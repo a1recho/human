@@ -14,15 +14,18 @@ public class loginUpController {
     UserService userService;
     @RequestMapping("loginUp")
     public String loginUp(@ModelAttribute User user){
-       if(!"".equals(user.getUsername())&&!"".equals(user.getPassword())){
-           User u = userService.selectUserByUsername(user.getUsername());
-           if(u==null) {
-               // return "loginUpError";
-               int i = userService.insertUser(user);
-               if (i == 1)
-                   return "index";
-           }else
+       if(!"".equals(user.getUsername())&&!"".equals(user.getPassword())&&!"".equals(user.getRePassword())){
+           if(user.getPassword().equals(user.getRePassword())) {
+               User u = userService.selectUserByUsername(user.getUsername());
+               if (u == null) {
+                   int i = userService.insertUser(user);
+                   if (i == 1)
+                       return "index";
+               } else
+                   return "loginUpError";
+           }else{
                return "loginUpError";
+           }
        }
        return "loginUpError";
     }

@@ -25,7 +25,8 @@
                             <b> ÃÜ&nbsp;Âë£º</b><input name="password" type="password"
                                             class="input"><br><br>
                             <input type="submit" value="½øÈë">&nbsp;&nbsp;
-                            <input type="button" value="×¢²á" onclick="a()"/>
+                            <input type="button" value="×¢²á" onclick="a()"/>&nbsp;&nbsp;
+                            <input type="button" value="ÐÞ¸ÄÃÜÂë" onclick="b()"/>
 
                         </form>
                     </td>
@@ -36,6 +37,9 @@
 <script>
     function a() {
         window.open("form.jsp", '_blank')
+    }
+    function b() {
+        window.open("forget.jsp", '_blank')
     }
 </script>
 </body>

@@ -7,6 +7,10 @@ public class User {
 
     private String password;
 
+    private String rePassword;
+
+    private String newPassword;
+
     private int role;
 
     private int resumeId;
@@ -33,6 +37,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
     public int getRole() {

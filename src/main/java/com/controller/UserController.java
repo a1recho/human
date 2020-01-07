@@ -68,4 +68,21 @@ public class UserController {
         return "adduser";
     }
 
+    @RequestMapping("updatePassword")
+    public String updatePassword(@ModelAttribute User user){
+        if(!"".equals(user.getUsername())&&!"".equals(user.getPassword())&&!"".equals(user.getRePassword())&&!"".equals(user.getNewPassword())){
+            if(user.getNewPassword().equals(user.getRePassword())) {
+                User u = userService.selectUserByUsername(user.getUsername());
+                if(u.getPassword().equals(user.getPassword())){
+                    user.setId(u.getId());
+                    user.setPassword(user.getNewPassword());
+                    userService.updateUser(user);
+                    return "index";
+                }
+                return "rePasswordError";
+            }
+            return "rePasswordError";
+        }
+        return "rePasswordError";
+    }
 }

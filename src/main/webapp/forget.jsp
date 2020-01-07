@@ -17,14 +17,16 @@
                 <tr align="center">
                     <td width="18" height="120" background="images/login_left.jpg" class="tableBorder_lb">&nbsp;</td>
                     <td width="607" height="120" bgcolor="#FFFFFF" class="tableBorder_br">
-                        <form name="usersForm" method="post" action="/loginUp">
-                            <b>用&nbsp;户&nbsp;名：</b><input name="username" type="text"
-                                              class="input"><br><br>
-                            <b> 密&nbsp;&nbsp;&nbsp;码：</b><input name="password" type="password"
-                                                    class="input"><br><br>
-                            <b> 重复密码：</b><input name="rePassword" type="rePassword"
-                                                    class="input"><br><br>
-                            <input type="submit" value="确认注册">
+                        <form name="usersForm" method="post" action="/updatePassword">
+                            <b>用 户 名：</b><input name="username" type="text"
+                                                          class="input"><br><br>
+                            <b>旧 密 码：</b><input name="password" type="password"
+                                                                class="input"><br><br>
+                            <b>新 密 码：</b><input name="newPassword" type="password"
+                                                class="input"><br><br>
+                            <b>重复密码：</b><input name="rePassword" type="password"
+                                               class="input"><br><br>
+                            <input type="submit" value="确认修改">
 
                         </form>
                     </td>
