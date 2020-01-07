@@ -17,7 +17,7 @@
             <td onMouseOver="change(ImgJob,NJob,'NJob_r',1)" onMouseOut="change(ImgJob,NJob,'NJob_b',0)"><a href="#"><img id="ImgJob" src="images/NJob_b.GIF" width="110" height="48" border="0"></a><div id="NJob" style="background-color:#F3FFD5; border:#75A102 1px solid; width:230px; position:absolute; left:1px; display:none; top: 34px;">
                 <table width="100%" border="0" height="35px" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td align="center"><a href="/listRecruitmentForUser">招聘信息 </a><a href="/listResumeForUser">我的简历 </a><a href="/Resume.jsp">添加简历信息</a></td>
+                        <td align="center"><a href="/myPush">已投递&nbsp;</a><a href="/listRecruitmentForUser">招聘信息</a>&nbsp;<a href="/listResumeForUser">我的信息&nbsp;</a><a href="/Resume.jsp">添加简历信息&nbsp;</a></td>
                     </tr>
                 </table>
             </div></td>
